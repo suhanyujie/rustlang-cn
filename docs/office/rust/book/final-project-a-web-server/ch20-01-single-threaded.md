@@ -24,7 +24,7 @@ $ cd hello
 
 <span class="filename">文件名: src/main.rs</span>
 
-```rust,no_run
+```rust , no_run
 use std::net::TcpListener;
 
 fn main() {
@@ -71,7 +71,7 @@ Connection established!
 
 <span class="filename">文件名: src/main.rs</span>
 
-```rust,no_run
+```rust , no_run
 use std::io::prelude::*;
 use std::net::TcpStream;
 use std::net::TcpListener;

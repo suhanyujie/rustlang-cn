@@ -52,7 +52,7 @@ that apply to the containing module, most of which influence the behavior of
 the compiler. The anonymous crate module can have additional attributes that
 apply to the crate as a whole.
 
-```rust,no_run
+```rust , no_run
 // Specify the crate name.
 #![crate_name = "projx"]
 

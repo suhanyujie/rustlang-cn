@@ -11,10 +11,6 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div id="join">欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div>
 
-<div style="margin-top: 1rem;"></div>
-
-<div id="join"><a href="https://leetcode-cn.com/contest/college/2019-spring" target="_black">2019 力扣杯 - 全国高校春季编程大赛</a></div>
-
 <div class="features">
   <div class="feature">
     <button class="new"><a href="/read/" >Rust中文阅读</a></button>

@@ -172,7 +172,7 @@ error[E0596]: cannot borrow immutable field `self.sent_messages` as mutable
 
 不能修改 `MockMessenger` 来记录消息，因为 `send` 方法获取 `self` 的不可变引用。我们也不能参考错误文本的建议使用 `&mut self` 替代，因为这样 `send` 的签名就不符合 `Messenger` trait 定义中的签名了（请随意尝试如此修改并看看会出现什么错误信息）。
 
-这正是内部可变性的用武之地！我们将通过 `RefCell` 来储存 `sent_messages`，然而 `send` 将能够修改 `sent_messages` 并储存消息。示例 15-22 展示了代码：
+这正是内部可变性的用武之地！我们将通过 `RefCell` 来储存 `sent_messages`，然后 `send` 将能够修改 `sent_messages` 并储存消息。示例 15-22 展示了代码：
 
 <span class="filename">文件名: src/lib.rs</span>
 

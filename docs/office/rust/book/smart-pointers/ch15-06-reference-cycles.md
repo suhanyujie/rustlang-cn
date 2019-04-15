@@ -111,7 +111,7 @@ a rc count after changing a = 2
 
 然而，因为 `a` 仍然引用 `b` 中的 `Rc<List>`，`Rc<List>` 的引用计数是 1 而不是 0，所以 `Rc<List>` 在堆上的内存不会被丢弃。其内存会因为引用计数为 1 而永远停留。为了更形象的展示，我们创建了一个如图 15-4 所示的引用循环：
 
-<img alt="Reference cycle of lists" src="img/trpl15-04.svg" class="center" />
+<img alt="Reference cycle of lists" src="../img/trpl15-04.svg" class="center" />
 
 <span class="caption">图 15-4: 列表 `a` 和 `b` 彼此互相指向形成引用循环</span>
 

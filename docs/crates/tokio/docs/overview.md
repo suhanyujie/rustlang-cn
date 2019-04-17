@@ -80,7 +80,7 @@ Tokio可以很好地扩展，而不会增加应用程序的开销，使其能够
 
 虽然Tokio提供了很多开箱即用的功能，但它的组织非常模块化。每个组件都位于一个单独的库中。如果需要，应用程序可以选择挑选所需的组件，避免依赖其余组件。
 
-Tokio充分利用`mio`作为系统事件队列和`futures`来定义任务，Tokio实现`async`语法以提`futures`的可读性。许多库都是使用Tokio实现的，包括`hyper`和actix`。`
+Tokio充分利用`mio`作为系统事件队列和`futures`来定义任务，Tokio实现`async`语法以提`futures`的可读性。许多库都是使用Tokio实现的，包括`hyper`和`actix`。
 
 例子:带有Tokio的基本TCP echo服务器：
 

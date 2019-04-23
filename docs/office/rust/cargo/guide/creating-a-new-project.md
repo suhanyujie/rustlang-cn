@@ -1,16 +1,14 @@
-## Creating a New Package
+## 创建新工程
 
-To start a new package with Cargo, use `cargo new`:
+要使用Cargo开始一个新项目，使用`cargo new`命令：
 
 ```console
 $ cargo new hello_world --bin
 ```
 
-We’re passing `--bin` because we’re making a binary program: if we
-were making a library, we’d pass `--lib`. This also initializes a new `git`
-repository by default. If you don't want it to do that, pass `--vcs none`.
+我们传递`--bin`参数是因为我们要开发一个二进制程序，如果我们想开发库，则要传递`--lib`参数。这同样会默认初始化一个新的`git`仓库，如果你不需要版本控制，传递`--vcs none`参数。
 
-Let’s check out what Cargo has generated for us:
+让我们看一下Cargo为我们生成了哪些文件：
 
 ```console
 $ cd hello_world
@@ -23,7 +21,7 @@ $ tree .
 1 directory, 2 files
 ```
 
-Let’s take a closer look at `Cargo.toml`:
+让我们仔细看看`Cargo.toml`文件的内容：
 
 ```toml
 [package]
@@ -36,10 +34,9 @@ edition = "2018"
 
 ```
 
-This is called a **manifest**, and it contains all of the metadata that Cargo
-needs to compile your package.
+这个文件被称为**依赖清单**，它包括了Cargo编译项目所需要的所有元数据。
 
-Here’s what’s in `src/main.rs`:
+下面是 `src/main.rs`文件的内容:
 
 ```rust
 fn main() {
@@ -47,23 +44,22 @@ fn main() {
 }
 ```
 
-Cargo generated a “hello world” for us. Let’s compile it:
+
+Cargo为我们生成了一个“hello world”项目，让我们编译它：
 
 ```console
 $ cargo build
    Compiling hello_world v0.1.0 (file:///path/to/package/hello_world)
 ```
 
-And then run it:
+然后运行它:
 
 ```console
 $ ./target/debug/hello_world
 Hello, world!
 ```
 
-We can also use `cargo run` to compile and then run it, all in one step (You
-won't see the `Compiling` line if you have not made any changes since you last
-compiled):
+我们也可以使用`cargo run`这一条命令来编译并运行项目（如果上次编译后你没有改变任何文件，你不会看到`Compiling`这行）:
 
 ```console
 $ cargo run
@@ -72,20 +68,16 @@ $ cargo run
 Hello, world!
 ```
 
-You’ll now notice a new file, `Cargo.lock`. It contains information about our
-dependencies. Since we don’t have any yet, it’s not very interesting.
+你现在注意到多了一个新文件`Cargo.lock`。它包含了依赖信息，由于我们的项目还没有任何依赖，这个文件的内容一点也没有趣。
 
-Once you’re ready for release, you can use `cargo build --release` to compile
-your files with optimizations turned on:
+一旦你准备好发布程序，你可以使用`cargo build --release`来开启优化选项编译你的程序：
 
 ```console
 $ cargo build --release
    Compiling hello_world v0.1.0 (file:///path/to/package/hello_world)
 ```
 
-`cargo build --release` puts the resulting binary in `target/release` instead of
-`target/debug`.
+`cargo build --release` 把生成的二进制程序放在 `target/release`目录下而不是
+`target/debug`目录下。
 
-Compiling in debug mode is the default for development-- compilation time is
-shorter since the compiler doesn't do optimizations, but the code will run
-slower. Release mode takes longer to compile, but the code will run faster.
+在调试模式下编译是默认的开发选项，因为编译器不会对程序进行优化，所以编译时间短，但是代码运行会慢。发布模式需要更长的时间编译，但是代码运行会更快。

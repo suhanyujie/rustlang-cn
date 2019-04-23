@@ -1,12 +1,10 @@
-## Why Cargo Exists
+## 为什么会存在Cargo
 
-Cargo is a tool that allows Rust packages to declare their various
-dependencies and ensure that you’ll always get a repeatable build.
+Cargo是一个允许Rust项目声明各种依赖并且保证你总是能可重复的构建程序的工具。
 
-To accomplish this goal, Cargo does four things:
+为了达成这个目标，Cargo做了四件事情：
 
-* Introduces two metadata files with various bits of package information.
-* Fetches and builds your package’s dependencies.
-* Invokes `rustc` or another build tool with the correct parameters to build
-  your package.
-* Introduces conventions to make working with Rust packages easier.
+* 引入两个带有各种程序包信息的元数据文件
+* 获取和构建你的项目依赖
+* 使用正确的构建参数调用`rustc`或者其他构建工具来构建你的程序
+* 引入惯例以使Rust程序包的开发管理更加容易

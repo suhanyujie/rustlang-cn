@@ -1,8 +1,8 @@
-## Continuous Integration
+## 持续集成
 
 ### Travis CI
 
-To test your package on Travis CI, here is a sample `.travis.yml` file:
+要在Travis Ci测试项目，如下是示例`.travis.yml`文件：
 
 ```yaml
 language: rust
@@ -15,14 +15,12 @@ matrix:
     - rust: nightly
 ```
 
-This will test all three release channels, but any breakage in nightly
-will not fail your overall build. Please see the [Travis CI Rust
-documentation](https://docs.travis-ci.com/user/languages/rust/) for more
-information.
+这将会测试所有三个发布通道，但是任何nightly构建中断将不会使整体构建失败。请参考[Travis CI Rust
+documentation](https://docs.travis-ci.com/user/languages/rust/)获取更多信息。
 
 ### GitLab CI
 
-To test your package on GitLab CI, here is a sample `.gitlab-ci.yml` file:
+要在GitLab CI测试项目，如下是示例`.gitlab-ci.yml`文件：
 
 ```yaml
 stages:
@@ -44,16 +42,11 @@ rust-nightly:
   allow_failure: true
 ```
 
-This will test on the stable channel and nightly channel, but any
-breakage in nightly will not fail your overall build. Please see the
-[GitLab CI](https://docs.gitlab.com/ce/ci/yaml/README.html) for more
-information.
+这会在stable通道和nightly通道测试，但是任何nightly构建中断将不会使整体构建失败。请参考[GitLab CI](https://docs.gitlab.com/ce/ci/yaml/README.html)获取更多信息。
 
 ### builds.sr.ht
 
-To test your package on sr.ht, here is a sample `.build.yml` file.
-Be sure to change `<your repo>` and `<your project>` to the repo to clone and
-the directory where it was cloned.
+要在sr.ht测试项目，如下是示例.build.yml文件。确保将`<your repo>`和`<your project>`改变为要克隆和已克隆的目录。
 
 ```yaml
 image: archlinux
@@ -82,7 +75,4 @@ tasks:
       rustup run nightly cargo doc --no-deps ||:
 ```
 
-This will test and build documentation on the stable channel and nightly
-channel, but any breakage in nightly will not fail your overall build. Please
-see the [builds.sr.ht documentation](https://man.sr.ht/builds.sr.ht/) for more
-information.
+这将会在stable和nightly通道测试和构建文档，但是任何nightly构建中断将不会使整体构建失败。请参考[builds.sr.ht documentation](https://man.sr.ht/builds.sr.ht/)获取更多信息。

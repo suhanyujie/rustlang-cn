@@ -1,14 +1,14 @@
 # Cargo指南
 
-This guide will give you all that you need to know about how to use Cargo to
-develop Rust packages.
 
-* [Why Cargo Exists](./why-cargo-exists.html)
-* [Creating a New Package](./creating-a-new-project.html)
-* [Working on an Existing Cargo Package](./working-on-an-existing-project.html)
-* [Dependencies](./dependencies.html)
-* [Package Layout](./project-layout.html)
-* [Cargo.toml vs Cargo.lock](./cargo-toml-vs-cargo-lock.html)
-* [Tests](./tests.html)
-* [Continuous Integration](./continuous-integration.html)
-* [Build Cache](./build-cache.html)
+你将从本指南中了解到有关如何使用Cargo开发Rust程序的所有知识
+
+* [为什么会存在Cargo](./why-cargo-exists.html)
+* [创建工程](./creating-a-new-project.html)
+* [基于已存在的程序包工作](./working-on-an-existing-project.html)
+* [依赖](./dependencies.html)
+* [程序包布局](./project-layout.html)
+* [Cargo.toml及Cargo.lock文件](./cargo-toml-vs-cargo-lock.html)
+* [测试](./tests.html)
+* [持续集成](./continuous-integration.html)
+* [创建Cache](./build-cache.html)

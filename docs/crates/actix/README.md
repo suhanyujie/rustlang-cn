@@ -27,7 +27,7 @@
         </li>
         <li >
             <p class="feature">特性丰富</p>
-            Actix提供了丰富的特性开箱即用。WebSockets，HTTP/2，流，管道，SSL，异步HTTTP客户端等一应俱全
+            Actix提供了丰富的特性开箱即用。WebSockets，HTTP/2，流，管道，SSL，异步HTTT客户端等一应俱全
         </li>
         <li >
             <p class="feature">扩展性强</p>

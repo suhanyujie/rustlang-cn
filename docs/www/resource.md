@@ -11,6 +11,7 @@
 
 ## Rust语言
 
+* [rust-cheatsheet](https://upsuper.github.io/rust-cheatsheet)
 * [rust-cheats](https://cheats.rs/)
 * [Rust阅读](https://readrust.net/) - Rust阅读
 * [Rust-too-many-lists](http://cglab.ca/~abeinges/blah/too-many-lists/book/) - Learning Rust With Entirely Too Many Linked Lists

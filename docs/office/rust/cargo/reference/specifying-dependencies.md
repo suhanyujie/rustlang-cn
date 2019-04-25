@@ -1,4 +1,4 @@
-## Specifying Dependencies
+## 指定依赖
 
 Your crates can depend on other libraries from [crates.io], `git` repositories, or
 subdirectories on your local file system. You can also temporarily override the
@@ -7,7 +7,7 @@ dependency that you are working on locally. You can have different
 dependencies for different platforms, and dependencies that are only used during
 development. Let's take a look at how to do each of these.
 
-### Specifying dependencies from crates.io
+### 从crates.io指定依赖
 
 Cargo is configured to look for dependencies on [crates.io] by default. Only
 the name and a version string are required in this case. In [the cargo
@@ -101,7 +101,7 @@ Here are some examples of inequality requirements:
 Multiple version requirements can also be separated with a comma, e.g. `>= 1.2,
 < 1.5`.
 
-### Specifying dependencies from `git` repositories
+### 从 `git` 仓库指定依赖
 
 To depend on a library located in a `git` repository, the minimum information
 you need to specify is the location of the repository with the `git` key:
@@ -127,7 +127,7 @@ the latest commit on a branch named `next`:
 rand = { git = "https://github.com/rust-lang-nursery/rand", branch = "next" }
 ```
 
-### Specifying path dependencies
+### 指定依赖路径
 
 Over time, our `hello_world` package from [the guide](guide/index.html) has
 grown significantly in size! It’s gotten to the point that we probably want to

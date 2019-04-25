@@ -1,4 +1,4 @@
-## Cargo.toml vs Cargo.lock
+## Cargo.toml及Cargo.lock文件
 
 `Cargo.toml` 和 `Cargo.lock`服务于两个不同的目的。在讨论它们之前，这里是一个总结：
 

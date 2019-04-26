@@ -59,7 +59,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   </div>
   <div class="feature">
     <h2>WebAssembly</h2>
-    <p>使用Rust可以一次为一个模块增加JavaScript,发布到npm，与WebPack捆绑，然后你就参加了比赛</p>
+    <p>使用Rust可以一次为一个模块增加JavaScript,发布到npm，与WebPack捆绑，然后你就可以接着进行开发了。</p>
     <div><a href="/office/wasm/">阅读更多</a></div>
   </div>
   <div class="feature">

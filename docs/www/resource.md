@@ -34,7 +34,7 @@
 ## 嵌入式
 
 * [Embedded WG](https://github.com/rust-embedded/wg)
-* [Frequently Asked Questions](https://rust-embedded.github.io/bookshelf/faq.html)
+* [docs.rust-embedded.org](https://docs.rust-embedded.org/)
 * [awesome-embedded-rust](https://github.com/rust-embedded/awesome-embedded-rust)
 
 ## 博客

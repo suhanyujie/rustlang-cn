@@ -71,7 +71,7 @@ fn handle_connection(mut stream: TcpStream) {
 
 <span class="filename">文件名: src/main.rs</span>
 
-```rust,no_run
+```rust , no_run
 # use std::thread;
 # use std::io::prelude::*;
 # use std::net::TcpListener;
@@ -101,7 +101,7 @@ fn main() {
 
 <span class="filename">文件名: src/main.rs</span>
 
-```rust,no_run
+```rust , no_run
 # use std::thread;
 # use std::io::prelude::*;
 # use std::net::TcpListener;
@@ -190,7 +190,7 @@ pub struct ThreadPool;
 
 impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
-        ThreadPool
+        ThreadPool{}
     }
 }
 ```
@@ -297,7 +297,7 @@ impl ThreadPool {
     pub fn new(size: usize) -> ThreadPool {
         assert!(size > 0);
 
-        ThreadPool
+        ThreadPool{}
     }
 
     // --snip--

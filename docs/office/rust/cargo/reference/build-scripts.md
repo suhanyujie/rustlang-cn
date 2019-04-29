@@ -245,7 +245,7 @@ build = "build.rs"
 Here we can see we’ve got a build script specified which we’ll use to generate
 some code. Let’s see what’s inside the build script:
 
-```rust,no_run
+```rust , no_run
 // build.rs
 
 use std::env;
@@ -336,7 +336,7 @@ build = "build.rs"
 For now we’re not going to use any build dependencies, so let’s take a look at
 the build script now:
 
-```rust,no_run
+```rust , no_run
 // build.rs
 
 use std::process::Command;

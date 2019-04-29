@@ -7,13 +7,9 @@ actionLink: /office/rust/book/
 footer: MIT Licensed | Copyright © 2019-present | Rust中文
 ---
 
-<div style="margin-top: 3rem;"></div>
+<div style="margin-top: 2rem;"></div>
 
 <div id="join">欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div>
-
-<div style="margin-top: 1rem;"></div>
-
-<div id="join"><a href="https://leetcode-cn.com/contest/college/2019-spring" target="_black">2019 力扣杯 - 全国高校春季编程大赛</a></div>
 
 <div class="features">
   <div class="feature">
@@ -63,7 +59,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   </div>
   <div class="feature">
     <h2>WebAssembly</h2>
-    <p>使用Rust可以一次为一个模块增加JavaScript,发布到npm，与WebPack捆绑，然后你就参加了比赛</p>
+    <p>使用Rust可以一次为一个模块增加JavaScript,发布到npm，与WebPack捆绑，然后你就可以接着进行开发了。</p>
     <div><a href="/office/wasm/">阅读更多</a></div>
   </div>
   <div class="feature">

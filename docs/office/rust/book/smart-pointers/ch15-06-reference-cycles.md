@@ -4,7 +4,7 @@
 > <br>
 > commit 1fedfc4b96c2017f64ecfcf41a0a07e2e815f24f
 
-Rust 的内存安全保证使其难以意外地制造永远也不会被清理的内存（被称为 **内存泄露**（*memory leak*）），但并不是不可能。与在编译时拒绝数据竞争不同， Rust 并不保证完全地避免内存泄露，这意味着内存泄露在 Rust 被认为是内存安全的。这一点可以通过 `Rc<T>` 和 `RefCell<T>` 看出：有可能会创建个个项之间相互引用的引用。这会造成内存泄露，因为每一项的引用计数将永远也到不了 0，其值也永远也不会被丢弃。
+Rust 的内存安全保证使其难以意外地制造永远也不会被清理的内存（被称为 **内存泄露**（*memory leak*）），但并不是不可能。与在编译时拒绝数据竞争不同， Rust 并不保证完全地避免内存泄露，这意味着内存泄露在 Rust 被认为是内存安全的。这一点可以通过 `Rc<T>` 和 `RefCell<T>` 看出：有可能会创建各个项之间相互引用的引用。这会造成内存泄露，因为每一项的引用计数将永远也到不了 0，其值也永远也不会被丢弃。
 
 ### 制造引用循环
 
@@ -111,7 +111,7 @@ a rc count after changing a = 2
 
 然而，因为 `a` 仍然引用 `b` 中的 `Rc<List>`，`Rc<List>` 的引用计数是 1 而不是 0，所以 `Rc<List>` 在堆上的内存不会被丢弃。其内存会因为引用计数为 1 而永远停留。为了更形象的展示，我们创建了一个如图 15-4 所示的引用循环：
 
-<img alt="Reference cycle of lists" src="img/trpl15-04.svg" class="center" />
+<img alt="Reference cycle of lists" src="../img/trpl15-04.svg" class="center" />
 
 <span class="caption">图 15-4: 列表 `a` 和 `b` 彼此互相指向形成引用循环</span>
 

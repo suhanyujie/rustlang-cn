@@ -14,9 +14,12 @@
 * [rust-cheatsheet](https://upsuper.github.io/rust-cheatsheet)
 * [rust-cheats](https://cheats.rs/)
 * [Rust阅读](https://readrust.net/) - Rust阅读
+* [中科大开源镜像站-Rust](https://mirrors.ustc.edu.cn/)
+* [中交大开源镜像站-Rust](https://mirrors.sjtug.sjtu.edu.cn/#/)
 * [Rust-too-many-lists](http://cglab.ca/~abeinges/blah/too-many-lists/book/) - Learning Rust With Entirely Too Many Linked Lists
 * [learning-rust](https://learning-rust.github.io/docs/a1.why_rust.html)
 * [Rust_w3cschool](https://www.w3cschool.cn/doc_rust/)
+
 
 ## 书籍
 

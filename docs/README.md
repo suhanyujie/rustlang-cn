@@ -9,6 +9,9 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div style="margin-top: 2rem;"></div>
 
+<div id="join">新-热 <a href="http://47.104.146.58/a/free/theme/60" target="_black">Rust-weekly-2019-05-02
+</a> </div>
+
 <div id="join">欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div>
 
 <div class="features">
@@ -18,7 +21,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   </div>
   <div class="feature">
     <button class="new"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在就加入中文论坛</strong></a></p>
+    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在就加入Rust中文论坛</strong></a></p>
   </div>
   <div class="feature">
     <button class="new"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>

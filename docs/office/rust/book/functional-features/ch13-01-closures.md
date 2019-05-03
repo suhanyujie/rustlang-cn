@@ -14,7 +14,7 @@ Rust 的 **闭包**（*closures*）是可以保存进变量或作为参数传递
 
 这里将通过调用 `simulated_expensive_calculation` 函数来模拟调用假象的算法，如示例 13-1 所示，它会打印出 `calculating slowly...`，等待两秒，并接着返回传递给它的数字：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
 use std::thread;
@@ -27,7 +27,7 @@ fn simulated_expensive_calculation(intensity: u32) -> u32 {
 }
 ```
 
-<span class="caption">示例 13-1：一个用来代替假想计算的函数，它大约会执行两秒钟</span>
+示例 13-1：一个用来代替假想计算的函数，它大约会执行两秒钟
 
 接下来，`main` 函数中将会包含本例的健身 app 中的重要部分。这代表当用户请求健身计划时 app 会调用的代码。因为与 app 前端的交互与闭包的使用并不相关，所以我们将硬编码代表程序输入的值并打印输出。
 
@@ -38,7 +38,7 @@ fn simulated_expensive_calculation(intensity: u32) -> u32 {
 
 程序的输出将会是建议的锻炼计划。示例 13-2 展示了我们将要使用的 `main` 函数：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
 fn main() {
@@ -50,27 +50,17 @@ fn main() {
         simulated_random_number
     );
 }
-# fn generate_workout(intensity: u32, random_number: u32) {}
 ```
 
-<span class="caption">示例 13-2：`main` 函数包含了用于 `generate_workout` 函数的模拟用户输入和模拟随机数输入</span>
+13-2：`main` 函数包含了用于 `generate_workout` 函数的模拟用户输入和模拟随机数输入
 
 出于简单考虑这里硬编码了 `simulated_user_specified_value` 变量的值为 10 和 `simulated_random_number` 变量的值为 7；一个实际的程序会从 app 前端获取强度系数并使用 `rand` crate 来生成随机数，正如第二章的猜猜看游戏所做的那样。`main` 函数使用模拟的输入值调用 `generate_workout` 函数：
 
 现在有了执行上下文，让我们编写算法。示例 13-3 中的 `generate_workout` 函数包含本例中我们最关心的 app 业务逻辑。本例中余下的代码修改都将在这个函数中进行：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
-# fn simulated_expensive_calculation(num: u32) -> u32 {
-#     println!("calculating slowly...");
-#     thread::sleep(Duration::from_secs(2));
-#     num
-# }
-#
 fn generate_workout(intensity: u32, random_number: u32) {
     if intensity < 25 {
         println!(
@@ -94,7 +84,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 }
 ```
 
-<span class="caption">示例 13-3：程序的业务逻辑，它根据输入并调用 `simulated_expensive_calculation` 函数来打印出健身计划</span>
+13-3：程序的业务逻辑，它根据输入并调用 `simulated_expensive_calculation` 函数来打印出健身计划
 
 示例 13-3 中的代码有多处调用了慢计算函数 `simulated_expensive_calculation` 。第一个 `if` 块调用了 `simulated_expensive_calculation` 两次， `else` 中的 `if` 没有调用它，而第二个 `else` 中的代码调用了它一次。
 
@@ -112,18 +102,9 @@ fn generate_workout(intensity: u32, random_number: u32) {
 
 有多种方法可以重构此程序。我们首先尝试的是将重复的 `simulated_expensive_calculation` 函数调用提取到一个变量中，如示例 13-4 所示：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
-# fn simulated_expensive_calculation(num: u32) -> u32 {
-#     println!("calculating slowly...");
-#     thread::sleep(Duration::from_secs(2));
-#     num
-# }
-#
 fn generate_workout(intensity: u32, random_number: u32) {
     let expensive_result =
         simulated_expensive_calculation(intensity);
@@ -150,7 +131,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 }
 ```
 
-<span class="caption">示例 13-4：将 `simulated_expensive_calculation` 调用提取到一个位置，并将结果储存在变量 `expensive_result` 中</span>
+示例 13-4：将 `simulated_expensive_calculation` 调用提取到一个位置，并将结果储存在变量 `expensive_result` 中
 
 这个修改统一了 `simulated_expensive_calculation` 调用并解决了第一个 `if` 块中不必要的两次调用函数的问题。不幸的是，现在所有的情况下都需要调用函数并等待结果，包括那个完全不需要这一结果的内部 `if` 块。
 
@@ -160,21 +141,17 @@ fn generate_workout(intensity: u32, random_number: u32) {
 
 不同于总是在 `if` 块之前调用 `simulated_expensive_calculation` 函数并储存其结果，我们可以定义一个闭包并将其储存在变量中，如示例 13-5 所示。实际上可以选择将整个 `simulated_expensive_calculation` 函数体移动到这里引入的闭包中：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
 let expensive_closure = |num| {
     println!("calculating slowly...");
     thread::sleep(Duration::from_secs(2));
     num
 };
-# expensive_closure(5);
 ```
 
-<span class="caption">示例 13-5：定义一个闭包并储存到变量 `expensive_closure` 中</span>
+示例 13-5：定义一个闭包并储存到变量 `expensive_closure` 中
 
 闭包定义是 `expensive_closure` 赋值的 `=` 之后的部分。闭包的定义以一对竖线（`|`）开始，在竖线中指定闭包的参数；之所以选择这个语法是因为它与 Smalltalk 和 Ruby 的闭包定义类似。这个闭包有一个参数 `num`；如果有多于一个参数，可以使用逗号分隔，比如 `|param1, param2|`。
 
@@ -184,12 +161,9 @@ let expensive_closure = |num| {
 
 定义了闭包之后，可以改变 `if` 块中的代码来调用闭包以执行代码并获取结果值。调用闭包类似于调用函数；指定存放闭包定义的变量名并后跟包含期望使用的参数的括号，如示例 13-6 所示：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
 fn generate_workout(intensity: u32, random_number: u32) {
     let expensive_closure = |num| {
         println!("calculating slowly...");
@@ -219,7 +193,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 }
 ```
 
-<span class="caption">示例 13-6：调用定义的 `expensive_closure`</span>
+示例 13-6：调用定义的 `expensive_closure`
 
 现在耗时的计算只在一个地方被调用，并只会在需要结果的时候执行该代码。
 
@@ -235,12 +209,9 @@ fn generate_workout(intensity: u32, random_number: u32) {
 
 类似于变量，如果相比严格的必要性你更希望增加明确性并变得更啰嗦，可以选择增加类型注解；为示例 13-5 中定义的闭包标注类型将看起来像示例 13-7 中的定义：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
 let expensive_closure = |num: u32| -> u32 {
     println!("calculating slowly...");
     thread::sleep(Duration::from_secs(2));
@@ -248,11 +219,11 @@ let expensive_closure = |num: u32| -> u32 {
 };
 ```
 
-<span class="caption">示例 13-7：为闭包的参数和返回值增加可选的类型注解</span>
+示例 13-7：为闭包的参数和返回值增加可选的类型注解
 
 有了类型注解闭包的语法就更类似函数了。如下是一个对其参数加一的函数的定义与拥有相同行为闭包语法的纵向对比。这里增加了一些空格来对齐相应部分。这展示了闭包语法如何类似于函数语法，除了使用竖线而不是括号以及几个可选的语法之外：
 
-```rust,ignore
+```rust
 fn  add_one_v1   (x: u32) -> u32 { x + 1 }
 let add_one_v2 = |x: u32| -> u32 { x + 1 };
 let add_one_v3 = |x|             { x + 1 };
@@ -263,20 +234,20 @@ let add_one_v4 = |x|               x + 1  ;
 
 闭包定义会为每个参数和返回值推断一个具体类型。例如，示例 13-8 中展示了仅仅将参数作为返回值的简短的闭包定义。除了作为示例的目的这个闭包并不是很实用。注意其定义并没有增加任何类型注解：如果尝试调用闭包两次，第一次使用 `String` 类型作为参数而第二次使用 `u32`，则会得到一个错误：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
-```rust,ignore,does_not_compile
+```rust
 let example_closure = |x| x;
 
 let s = example_closure(String::from("hello"));
 let n = example_closure(5);
 ```
 
-<span class="caption">示例 13-8：尝试调用一个被推断为两个不同类型的闭包</span>
+示例 13-8：尝试调用一个被推断为两个不同类型的闭包
 
 编译器给出如下错误：
 
-```text
+```rust
 error[E0308]: mismatched types
  --> src/main.rs
   |
@@ -304,7 +275,7 @@ error[E0308]: mismatched types
 
 示例 13-9 展示了存放了闭包和一个 Option 结果值的 `Cacher` 结构体的定义：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
 struct Cacher<T>
@@ -315,7 +286,7 @@ struct Cacher<T>
 }
 ```
 
-<span class="caption">示例 13-9：定义一个 `Cacher` 结构体来在 `calculation` 中存放闭包并在 `value` 中存放 Option 值</span>
+示例 13-9：定义一个 `Cacher` 结构体来在 `calculation` 中存放闭包并在 `value` 中存放 Option 值
 
 结构体 `Cacher` 有一个泛型  `T` 的字段 `calculation`。`T` 的 trait bound 指定了 `T` 是一个使用 `Fn` 的闭包。任何我们希望储存到 `Cacher` 实例的 `calculation` 字段的闭包必须有一个 `u32` 参数（由 `Fn` 之后的括号的内容指定）并必须返回一个 `u32`（由 `->` 之后的内容）。
 
@@ -325,16 +296,9 @@ struct Cacher<T>
 
 刚才讨论的有关 `value` 字段逻辑定义于示例 13-10：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# struct Cacher<T>
-#     where T: Fn(u32) -> u32
-# {
-#     calculation: T,
-#     value: Option<u32>,
-# }
-#
 impl<T> Cacher<T>
     where T: Fn(u32) -> u32
 {
@@ -358,7 +322,7 @@ impl<T> Cacher<T>
 }
 ```
 
-<span class="caption">示例 13-10：`Cacher` 的缓存逻辑</span>
+示例 13-10：`Cacher` 的缓存逻辑
 
 `Cacher` 结构体的字段是私有的，因为我们希望 `Cacher` 管理这些值而不是任由调用代码潜在的直接改变他们。
 
@@ -370,41 +334,9 @@ impl<T> Cacher<T>
 
 示例 13-11 展示了如何在示例 13-6 的 `generate_workout` 函数中利用 `Cacher` 结构体：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
-# use std::thread;
-# use std::time::Duration;
-#
-# struct Cacher<T>
-#     where T: Fn(u32) -> u32
-# {
-#     calculation: T,
-#     value: Option<u32>,
-# }
-#
-# impl<T> Cacher<T>
-#     where T: Fn(u32) -> u32
-# {
-#     fn new(calculation: T) -> Cacher<T> {
-#         Cacher {
-#             calculation,
-#             value: None,
-#         }
-#     }
-#
-#     fn value(&mut self, arg: u32) -> u32 {
-#         match self.value {
-#             Some(v) => v,
-#             None => {
-#                 let v = (self.calculation)(arg);
-#                 self.value = Some(v);
-#                 v
-#             },
-#         }
-#     }
-# }
-#
 fn generate_workout(intensity: u32, random_number: u32) {
     let mut expensive_result = Cacher::new(|num| {
         println!("calculating slowly...");
@@ -434,7 +366,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 }
 ```
 
-<span class="caption">示例 13-11：在 `generate_workout` 函数中利用 `Cacher` 结构体来抽象出缓存逻辑</span>
+示例 13-11：在 `generate_workout` 函数中利用 `Cacher` 结构体来抽象出缓存逻辑
 
 不同于直接将闭包保存进一个变量，我们保存一个新的 `Cacher` 实例来存放闭包。接着，在每一个需要结果的地方，调用 `Cacher` 实例的 `value` 方法。可以调用 `value` 方法任意多次，或者一次也不调用，而慢计算最多只会运行一次。
 
@@ -446,7 +378,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 
 第一个问题是 `Cacher` 实例假设对于 `value` 方法的任何 `arg` 参数值总是会返回相同的值。也就是说，这个 `Cacher` 的测试会失败：
 
-```rust,ignore,panics
+```rust
 #[test]
 fn call_with_different_values() {
     let mut c = Cacher::new(|a| a);
@@ -462,7 +394,7 @@ fn call_with_different_values() {
 
 使用示例 13-9 和示例 13-10 的 `Cacher` 实现运行测试，它会在 `assert_eq!` 失败并显示如下信息：
 
-```text
+```rust
 thread 'call_with_different_values' panicked at 'assertion failed: `(left == right)`
   left: `1`,
  right: `2`', src/main.rs
@@ -480,7 +412,7 @@ thread 'call_with_different_values' panicked at 'assertion failed: `(left == rig
 
 示例 13-12 有一个储存在 `equal_to_x` 变量中闭包的例子，它使用了闭包环境中的变量 `x`：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
 ```rust
 fn main() {
@@ -494,15 +426,15 @@ fn main() {
 }
 ```
 
-<span class="caption">示例 13-12：一个引用了其周围作用域中变量的闭包示例</span>
+示例 13-12：一个引用了其周围作用域中变量的闭包示例
 
 这里，即便 `x` 并不是 `equal_to_x` 的一个参数，`equal_to_x` 闭包也被允许使用变量 `x`，因为它与 `equal_to_x` 定义于相同的作用域。
 
 函数则不能做到同样的事，如果尝试如下例子，它并不能编译：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let x = 4;
 
@@ -516,7 +448,7 @@ fn main() {
 
 这会得到一个错误：
 
-```text
+```rust
 error[E0434]: can't capture dynamic environment in a fn item; use the || { ...
 } closure form instead
  --> src/main.rs
@@ -541,9 +473,9 @@ error[E0434]: can't capture dynamic environment in a fn item; use the || { ...
 
 第十六章讨论并发时会展示更多 `move` 闭包的例子，不过现在这里修改了示例 13-12 中的代码（作为演示），在闭包定义中增加 `move` 关键字并使用 vector 代替整型，因为整型可以被拷贝而不是移动；注意这些代码还不能编译：
 
-<span class="filename">文件名: src/main.rs</span>
+文件名: src/main.rs
 
-```rust,ignore,does_not_compile
+```rust
 fn main() {
     let x = vec![1, 2, 3];
 
@@ -559,7 +491,7 @@ fn main() {
 
 这个例子并不能编译，会产生以下错误：
 
-```text
+```rust
 error[E0382]: use of moved value: `x`
  --> src/main.rs:6:40
   |

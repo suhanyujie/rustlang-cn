@@ -4,6 +4,7 @@ exports.www = (title) => {
         'crates',
         'tokio',
         'actix',
+        'weekly',
         'resource'
     ]
 }

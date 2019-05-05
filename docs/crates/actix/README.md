@@ -35,7 +35,7 @@
         </li>
         <li >
             <p class="feature">速度极快</p>
-            Actix 具有顶级的速度,<a href="https://www.techempower.com/benchmarks/#section=data-r16&hw=ph&test=plaintext">自己看</a>
+            Actix 具有顶级的速度,<a href="https://www.techempower.com/benchmarks/#section=test&runid=021dbe49-bcc4-4ea5-8475-50e9ed8e572f&hw=ph&test=fortune">自己看</a>
         </li>
     </div>
 

@@ -24,6 +24,8 @@
 
 ## 书籍
 
+* [**官方Rust书-中文版**](https://rustlang-cn.org/office/rust/)
+* [**Rust生态库-中文版**](https://rustlang-cn.org/crates/)
 * [Rust程序设计语言-第二版](https://kaisery.github.io/trpl-zh-cn/foreword.html)
 * [中文Rust By Example](https://rustwiki.org/zh-CN/rust-by-example/index.html)
 

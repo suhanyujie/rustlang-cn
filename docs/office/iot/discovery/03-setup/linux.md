@@ -1,5 +1,7 @@
 # Linux
 
+> 源：[linux.md](https://github.com/rust-embedded/discovery/blob/master/src/03-setup/linux.md) &nbsp; Commit: 7a9500e0f525d76e1f0741ea912af9ca81d4eedd
+
 以下是一些Linux发行版的安装命令。
 
 ## 需要的包

@@ -30,6 +30,8 @@
 ## 视频
 
 * [Rust基础教程](https://nodelover.me/course/rust-basic)
+* [【编程】Rust 教程 | 中文字幕 - 系列视频](https://space.bilibili.com/331415319?spm_id_from=333.788.b_765f7570696e666f.2)
+
 
 ## Wasm
 
@@ -40,6 +42,7 @@
 * [Embedded WG](https://github.com/rust-embedded/wg)
 * [docs.rust-embedded.org](https://docs.rust-embedded.org/)
 * [awesome-embedded-rust](https://github.com/rust-embedded/awesome-embedded-rust)
+* [Rust 嵌入式开发](https://zhuanlan.zhihu.com/embedded-rust)
 
 ## 博客
 

@@ -7,6 +7,7 @@
 * [Rust中文论坛](http://47.104.146.58/)
 * [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 * [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
+* [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
 * [Rust中文资源仓库](https://github.com/rustlang-cn/resourses)
 

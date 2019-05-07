@@ -17,11 +17,11 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 <div class="features">
   <div class="feature">
     <button class="new"><a href="/read/" >Rust中文阅读</a></button>
-    <p><a href="/read/05/wasmer-plugin-pt-1.html" ><strong>最新文章：用`Wasmer`进行插件开发1</strong></a></p>
+    <p><a href="/read/" ><strong>Rust中文优质文章阅读</strong></a></p>
   </div>
   <div class="feature">
     <button class="new"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在就加入Rust中文论坛</strong></a></p>
+    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
   </div>
   <div class="feature">
     <button class="new"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>

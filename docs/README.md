@@ -25,7 +25,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   </div>
   <div class="feature">
     <button class="new"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>
-    <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文在线聊天室畅聊</strong></a></p>
+    <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文聊天室畅聊</strong></a></p>
   </div>
 </div>
 

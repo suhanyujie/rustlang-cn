@@ -6,7 +6,7 @@
 
 [欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn),好文将展示在：
 
-- [Rust中文](https://rustlang-cn.org/)
+- [Rust中文阅读](https://rustlang-cn.org/)
 - [Rust中文论坛](http://47.104.146.58/)
 - [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 - [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)

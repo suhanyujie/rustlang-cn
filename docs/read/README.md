@@ -10,7 +10,7 @@
 <a href="/read/03/rust-bacise-add-trait.html">Rust基础：Add Trait</a></h4>
 
 <h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-01</span>
-<a href="/read/01/rust-dedicated-gc-thread.html">Rust: Dedicated GC th2read</a></h4>
+<a href="/read/01/rust-dedicated-gc-thread.html">Rust: Dedicated GC thread</a></h4>
 
 <h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-01</span>
 <a href="/read/01/rust-memory-allocator.html">Rust内存分配器的不同行为</a></h4>

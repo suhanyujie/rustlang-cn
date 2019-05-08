@@ -29,7 +29,7 @@ module.exports = {
     ],
     plugins: ['@vuepress/back-to-top','@vuepress/pwa'],
     themeConfig: {
-        repo: 'rustlang-cn/rustlang-cn',
+//         repo: 'rustlang-cn/rustlang-cn',
         docsDir: 'docs',
         logo: '/imgs/rust.png',
         displayAllHeaders: true,

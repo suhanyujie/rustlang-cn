@@ -68,7 +68,7 @@ module.exports = {
             { text: 'Serde', link: '/crates/serde/' },
             { text: 'Tokio', link: '/crates/tokio/' }
           ] },
-          { text: '网络', link: '/www/' },
+          { text: '网络', link: '/www/weekly.html' },
           { text: '论坛', link: 'http://47.104.146.58' },
           { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
           

@@ -9,7 +9,7 @@
 * [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
-* [Rust中文资源仓库](https://github.com/rustlang-cn/resourses)
+* [Rust中文Github](https://github.com/rustlang-cn)
 
 ## Awesome
 

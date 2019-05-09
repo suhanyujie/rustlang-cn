@@ -27,7 +27,11 @@ module.exports = {
       ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
       ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
-    plugins: ['@vuepress/back-to-top','@vuepress/pwa'],
+    plugins: {
+      '@vuepress/back-to-top': {},
+      '@vuepress/pwa': {},
+      'vuepress-plugin-baidu-autopush': {}
+    },
     themeConfig: {
         repo: 'rustlang-cn/rustlang-cn',
         docsDir: 'docs',

@@ -77,7 +77,7 @@ struct Vec<T> {
 |`PhantomData<*const T>`|-|协变|
 |`PhantomData<*mut T>`|-|不变|
 |`PhantomData<fn(T)>`|-|逆变(*)|
-|`PhantomData<fn() -> T`|-|协变|
+|`PhantomData<fn() -> T>`|-|协变|
 |`PhantomData<fn(T) -> T>`|-|不变|
 |`PhantomData<Cell<&'a ()>>`|不变|-|
 

@@ -1,5 +1,8 @@
+@import "read"
+@import "doc"
 @import "actix"
 @import "tokio"
+@import "www"
 
 .carbon-ads, .bsa-cpc-wrapper, .bsa-cpc {
     display: none;
@@ -9,7 +12,7 @@ ul, ol, li {
     list-style: none;
 }
 
-.navbar, .links, .nav-links, button, .front, #join, #lanmu  {
+.navbar, .links, .nav-links, button, .front, #join, #news {
     background: linear-gradient(315deg,  #8FCDFF 0%,  #8FCDFF 100%);
     border: none;
 }
@@ -26,7 +29,6 @@ ul, ol, li {
     color: #7B463D;
 }
 
-//------------------------home------------------------
 .front {
     max-height: 665px;
 }
@@ -37,28 +39,27 @@ ul, ol, li {
 .home .description {
     color: #7B463D !important;
 }
-.new {
+.home .topic {
     padding: 0.5rem 2.2rem;
     border-radius: 5%; 
     height 3.3rem;
 }
 
-.new a {
+.home .topic a {
     font-size: 1.3rem;
     font-weight: bold;
     color: #7B463D;
 }
 
-#join {
+.home #join, #news {
     width: 100%;
     text-align: center;
     font-size: 2rem;
 }
-#join a {
+.home #join a, .home #news a {
     font-weight: bold;
     color: #7B463D;
 }
-//---------------------docs----------------------------------
 
 ::-webkit-scrollbar {
     width: 4px;
@@ -71,25 +72,6 @@ ul, ol, li {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 16px rgba(0,0,0,.3);
     background-color: #8AC3421;
-}
-
-//---------------------blog----------------------------
-
-#lanmu {
-    width: 100%;
-    height: 11rem;
-}
-#lanmu #word {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #7B463D;
-    padding: 4rem 0;
-    line-height: 3.3rem; 
-}
-
-h4 img {
-    width: 1.1rem;
-    height: 1.1rem; 
 }
 
 @media (max-width: 420px) {
@@ -108,12 +90,5 @@ h4 img {
 @media (min-width: 608px) and (max-width: 768px) {
     .front {
         max-height: 666px;
-    }
-}
-
-@media (max-width: 460px) {
-    #lanmu #word {
-        padding: 3rem 0;
-        line-height: 3.3rem; 
     }
 }

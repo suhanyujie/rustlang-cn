@@ -69,7 +69,7 @@ struct Vec<T> {
 
 下表展示了各种牛X闪闪的`PhantomData`用法：
 
-| Phantom 类型 | `'a` | `'T` |
+| Phantom 类型 | `'a` | `T` |
 |----|----|----|
 |`PhantomData<T>`|-|协变（可触发drop检查）|
 |`PhantomData<&'a T>`|协变|协变|

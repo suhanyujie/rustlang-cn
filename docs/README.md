@@ -9,23 +9,23 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div style="margin-top: 3rem;"></div>
 
-<div id="join">🎉🎉<a href="http://47.104.146.58/a/free/theme/60" target="_black">Rust-weekly-2019-05-02
+<div id="news">🎉🎉🎉<a href="http://47.104.146.58/a/free/theme/62" target="_black">Rust-weekly-2019-05-09
 </a> </div><hr>
 
 <div id="join">欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div>
 
 <div class="features">
   <div class="feature">
-    <button class="new"><a href="/read/" >Rust中文阅读</a></button>
-    <p><a href="/read/03/rust-bacise-add-trait.html" ><strong>最新文章：Rust基础：Add Trait</strong></a></p>
+    <button class="topic"><a href="/read/" >Rust中文阅读</a></button>
+    <p><a href="/read/" ><strong>Rust中文优质文章阅读</strong></a></p>
   </div>
   <div class="feature">
-    <button class="new"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在就加入Rust中文论坛</strong></a></p>
+    <button class="topic"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
+    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
   </div>
   <div class="feature">
-    <button class="new"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>
-    <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文在线聊天室畅聊</strong></a></p>
+    <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>
+    <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文聊天室畅聊</strong></a></p>
   </div>
 </div>
 

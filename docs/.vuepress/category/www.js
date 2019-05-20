@@ -1,10 +1,9 @@
 exports.www = (title) => {
     return [
-        '',
+        'weekly',
         'crates',
         'tokio',
         'actix',
-        'weekly',
         'resource'
     ]
 }

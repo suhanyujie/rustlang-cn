@@ -15,7 +15,7 @@ let { tokio_blog } = require ('./category/tokio_blog.js')
 
 module.exports = {
     extend: '@vuepress/theme-default',
-    title: 'Rust 中文',
+    title: 'Rust中文',
     description: '互助Rust爱好者,致力于Rust编程语言中文网络',
     head: [
       ['link', { rel: 'icon', href: `/favicon.ico` }],
@@ -27,14 +27,18 @@ module.exports = {
       ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
       ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
-    plugins: ['@vuepress/back-to-top','@vuepress/pwa'],
+    plugins: {
+      '@vuepress/back-to-top': {},
+      '@vuepress/pwa': {},
+      'vuepress-plugin-baidu-autopush': {}
+    },
     themeConfig: {
-        repo: 'rustlang-cn/rustlang-cn',
+        //repo: 'rustlang-cn/rustlang-cn',
         docsDir: 'docs',
         logo: '/imgs/rust.png',
         displayAllHeaders: true,
-        editLinks: true,
-        editLinkText: '在 GitHub 上编辑此页',
+        //editLinks: true,
+        //editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新', 
         sidebarDepth: 0,
         search: true,
@@ -68,7 +72,7 @@ module.exports = {
             { text: 'Serde', link: '/crates/serde/' },
             { text: 'Tokio', link: '/crates/tokio/' }
           ] },
-          { text: '网络', link: '/www/' },
+          { text: '网络', link: '/www/weekly.html' },
           { text: '论坛', link: 'http://47.104.146.58' },
           { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
           

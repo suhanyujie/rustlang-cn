@@ -1,4 +1,18 @@
+![img](https://images.wallpaperscraft.com/image/liquid_stains_bubbles_139915_1366x768.jpg)
+
 # 用`Wasmer`进行插件开发1
+
+> 本文同步于[Rust中文阅读：用`Wasmer`进行插件开发1](https://rustlang-cn.org/read/05/wasmer-plugin-pt-1.html) ,本文时间：2019-05-07, 作者：suhanyujie，简介：[suhanyujie](https://github.com/suhanyujie)
+
+[欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn),好文将展示在：
+
+- [Rust中文阅读](https://rustlang-cn.org/)
+- [Rust中文论坛](http://47.104.146.58/)
+- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+- [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文微博](https://weibo.com/kriry?is_all=1)
+- [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
+
 * 这是一篇翻译文：*原文链接 https://wiredforge.com/blog/wasmer-plugin-pt-1/index.html*
 * 翻译首发地址：https://github.com/suhanyujie/article-transfer-rs/blob/master/src/using_wasmer_for_plugins
 >正文开始：

@@ -14,7 +14,7 @@
 
 ### Choo, Choo!（开车啦，逃）发布通道和发布时刻表（Riding the Trains）
 
-Rust 开发运行于一个 **发布时刻表**（*train schedule*）之上。也就是说，所有的开发工作都位于 Rust 仓库的 `master` 分支。发布采用 software release train 模型，其被用于 思科 IOS 等其它软件项目。Rust 有三个 **发布通道**（*release channel*）：
+Rust 开发运行于一个 **发布时刻表**（*train schedule*）之上。也就是说，所有的开发工作都位于 Rust 仓库的 `master` 分支。发布采用 software release train 模型，其被用于思科、iOS 等其它软件项目。Rust 有三个 **发布通道**（*release channel*）：
 
 * Nightly
 * Beta

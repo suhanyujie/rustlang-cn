@@ -2,7 +2,14 @@
 
 ## 一、参与 Rust 中文阅读投稿
 
-> Rust 中文致力于 Rust 编程语言中文网络建设，期待你的参与向 Rust 中文阅读投稿.
+> [欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向[Rust中文阅读](https://rustlang-cn.org/read/)投稿,好文将展示在以下Rust中文网络点：
+
+- [Rust中文阅读](https://rustlang-cn.org/)
+- [Rust中文论坛](http://47.104.146.58/)
+- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+- [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文微博](https://weibo.com/kriry?is_all=1)
+- [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
 
 **说明**：文章投稿可以直接PR本仓库，也可以投递文章链接（请选用易使用的格式，如：Markdown）。本专栏默认 MIT 协议，如你的文章有其他要求可注明。
 

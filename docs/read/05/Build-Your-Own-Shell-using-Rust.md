@@ -1,4 +1,10 @@
+![img](https://images.wallpaperscraft.com/image/legs_sneakers_shoes_140745_1366x768.jpg)
+
 # 【译】使用 Rust 构建你自己的 Shell
+
+> [欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn),好文将展示在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF).
+>
+> 本文同步于[Rust中文阅读：使用 Rust 构建你自己的 Shell](https://rustlang-cn.org/read/05/Build-Your-Own-Shell-using-Rust.html) ,本文时间：2019-05-20, 作者：suhanyujie，简介：[suhanyujie](https://github.com/suhanyujie)
 
 >* 原文地址：https://www.joshmcguigan.com/blog/build-your-own-shell-rust/
 >* 原文作者：[Josh Mcguigan](https://github.com/JoshMcguigan)
@@ -6,7 +12,7 @@
 >* 本文永久链接： https://github.com/suhanyujie/article-transfer-rs/blob/master/src/2019/Build_Your_Own_Shell_using_Rust.md
 >* 译者：[suhanyujie](https://github.com/suhanyujie)
 
-> 正文开始
+## 正文开始
 
 * 这是一个使用 Rust 构建自己的 shell 的教程，已经被收录在 [build-your-own-x](https://github.com/danistefanovic/build-your-own-x) 列表中。自己创建一个 shell 是理解 shell、终端模拟器、以及 OS 等协同工作的好办法。
 

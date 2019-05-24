@@ -57,7 +57,9 @@
 - [actix-web-jaeger](https://github.com/OutThereLabs/actix-web-jaeger)
 - [actix-diesel](https://github.com/mehcode/actix-diesel) - Integrate Diesel into Actix (and Actix Web) cleanly and efficiently.
 - [actix-broker](https://github.com/chris-ricketts/actix-broker) - Message broker for the Actix actor framework
-
+- [actix-web-httpauth](https://github.com/svartalf/actix-web-httpauth) - HTTP authentication schemes for actix-web framework.
+- [actix-json](https://github.com/mattlockyer/actix-json) - Actix Web - Async JSON Service Boilerplate
+- [actix-web-prom](https://github.com/nlopes/actix-web-prom) - Prometheus middleware for actix-web
 
 
 **社区项目 :**

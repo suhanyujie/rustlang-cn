@@ -60,6 +60,7 @@
 - [actix-web-httpauth](https://github.com/svartalf/actix-web-httpauth) - HTTP authentication schemes for actix-web framework.
 - [actix-json](https://github.com/mattlockyer/actix-json) - Actix Web - Async JSON Service Boilerplate
 - [actix-web-prom](https://github.com/nlopes/actix-web-prom) - Prometheus middleware for actix-web
+- [actix-web-lets-encrypt](https://github.com/ctm/actix-web-lets-encrypt) - Let's Encrypt SSL support for Actix web applications using acme-client
 
 
 **社区项目 :**

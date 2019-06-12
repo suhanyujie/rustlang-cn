@@ -1,32 +1,28 @@
-## External tools
+# 扩展工具
 
-One of the goals of Cargo is simple integration with third-party tools, like
-IDEs and other build systems. To make integration easier, Cargo has several
-facilities:
+> 源[external-tools.md](https://github.com/rust-lang/cargo/commits/master/src/doc/src/reference/external-tools.md) &emsp; Commit: 4a8bd29f98f89b57183c790d98148586e1c13d98
 
-* a `cargo metadata` command, which outputs package structure and dependencies
-  information in JSON,
+Cargo 的目标之一是与第三方工具(如 IDE 和其他构建系统)的简单集成。为了简化集成，Cargo 有几个设施:
 
-* a `--message-format` flag, which outputs information about a particular build,
-  and
+- 一个`cargo metadata`命令，以 JSON 格式输出包结构和依赖关系信息，
 
-* support for custom subcommands.
+- 一个`--message-format`标志，输出有关特定构建的信息，以及
 
+- 支持自定义子命令.
 
-### Information about package structure
+## 包结构的信息
 
-You can use `cargo metadata` command to get information about package structure
-and dependencies. The output of the command looks like this:
+您可以使用`cargo metadata`命令，以获取有关包结构和依赖关系的信息。命令的输出如下所示:
 
 ```text
 {
-  // Integer version number of the format.
+  // Integer 版本格式数字.
   "version": integer,
 
-  // List of packages for this workspace, including dependencies.
+  // 工作区包的列表, 包括 依赖项.
   "packages": [
     {
-      // Opaque package identifier.
+      // 包 识别id 队列.
       "id": PackageId,
 
       "name": string,
@@ -35,19 +31,19 @@ and dependencies. The output of the command looks like this:
 
       "source": SourceId,
 
-      // A list of declared dependencies, see `resolve` field for actual dependencies.
+      // 确认依赖的一个列表, 可看 `resolve` 字段中的真实依赖.
       "dependencies": [ Dependency ],
 
       "targets: [ Target ],
 
-      // Path to Cargo.toml
+      //  Cargo.toml 路径
       "manifest_path": string,
     }
   ],
 
   "workspace_members": [ PackageId ],
 
-  // Dependencies graph.
+  // 依赖 关系图.
   "resolve": {
      "nodes": [
        {
@@ -59,56 +55,40 @@ and dependencies. The output of the command looks like this:
 }
 ```
 
-The format is stable and versioned. When calling `cargo metadata`, you should
-pass `--format-version` flag explicitly to avoid forward incompatibility
-hazard.
+格式稳定且有版本化。调用`cargo metadata`时，你应该通过`--format-version`明确标记，以避免向前不兼容的危险。
 
-If you are using Rust, there is [cargo_metadata] crate.
+如果你正在使用 Rust，这有个[cargo_metadata]箱.
 
 [cargo_metadata]: https://crates.io/crates/cargo_metadata
 
-
 ### Information about build
 
-When passing `--message-format=json`, Cargo will output the following
-information during the build:
+关于构建的资料
 
-* compiler errors and warnings,
+传递`--message-format=json`给，Cargo， 将在构建期间输出以下信息:
 
-* produced artifacts,
+- 编译器错误和警告，
 
-* results of the build scripts (for example, native dependencies).
+- 制作的工件，
 
-The output goes to stdout in the JSON object per line format. The `reason` field
-distinguishes different kinds of messages.
+- 构建脚本的结果(例如，本机依赖项).
 
-Information about dependencies in the Makefile-compatible format is stored in
-the `.d` files alongside the artifacts.
+输出以每行格式的 JSON 对象转到 stdout。`reason`字段区分不同类型的消息.
 
+有关 Makefile 兼容格式的依赖关系的信息存储在工件旁的`.d`文件中。
 
 ### Custom subcommands
 
-Cargo is designed to be extensible with new subcommands without having to modify
-Cargo itself. This is achieved by translating a cargo invocation of the form
-cargo `(?<command>[^ ]+)` into an invocation of an external tool
-`cargo-${command}`. The external tool must be present in one of the user's
-`$PATH` directories.
+自定义的子命令
 
-When Cargo invokes a custom subcommand, the first argument to the subcommand
-will be the filename of the custom subcommand, as usual. The second argument
-will be the subcommand name itself. For example, the second argument would be
-`${command}` when invoking `cargo-${command}`. Any additional arguments on the
-command line will be forwarded unchanged.
+Cargo 设计为，可以使用新的子命令进行扩展，而无需修改 Cargo 本身。这是通过转化一个 cargo `(?<command>[^ ]+)`的命令调用，变化为调用外部工具`cargo-${command}`来实现的。外部工具必须存在于用户其中一个`$PATH`目录中.
 
-Cargo can also display the help output of a custom subcommand with `cargo help
-${command}`. Cargo assumes that the subcommand will print a help message if its
-third argument is `--help`. So, `cargo help ${command}` would invoke
-`cargo-${command} ${command} --help`.
+当 Cargo 调用自定义子命令时，子命令的第一个参数将像往常一样是自定义子命令的文件名。第二个参数将是子命令名称本身。例如，在调用`cargo-${command}`时，第二个参数是`${command}`。命令行上的其他所有参数将保持不变.
 
-Custom subcommands may use the `CARGO` environment variable to call back to
-Cargo. Alternatively, it can link to `cargo` crate as a library, but this
-approach has drawbacks:
+Cargo 还可以用`cargo help ${command}`显示自定义子命令的帮助输出。Cargo 假定子命令将在第三个参数出现时，打印帮助消息`--help`.所以，`cargo help ${command}`会调用`cargo-${command} ${command} --help`.
 
-* Cargo as a library is unstable: the  API may change without deprecation
+自定义子命令可以使用`CARGO`环境变量回调 Cargo。或者，它可以链接到作为一个库的`cargo`箱，但这种方法有缺点:
 
-* versions of the linked Cargo library may be different from the Cargo binary
+- Cargo 作为库是不稳定的:API 可能会更改，但不会弃用
+
+- 链接的 Cargo 库的版本可能与 Cargo 二进制文件不同

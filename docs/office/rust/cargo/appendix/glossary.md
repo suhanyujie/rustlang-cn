@@ -1,190 +1,150 @@
 # 词汇表
 
+> 源[glossary.md](https://github.com/rust-lang/cargo/commits/master/src/doc/src/appendix/glossary.md) &emsp; Commit: b54748ef1c8789364c2322b14019270a0508fd25
+
 ## Artifact
 
-An *artifact* is the file or set of files created as a result of the
-compilation process. This includes linkable libraries and executable binaries.
+- 工件
+
+一个*Artifact*是由编译过程创建的文件或文件集。这包括可链接库和可执行二进制文件.
 
 ### Crate
 
-Every target in a package is a *crate*. Crates are either libraries or
-executable binaries. It may loosely refer to either the source code of the
-target, or the compiled artifact that the target produces. A crate may also
-refer to a compressed package fetched from a registry.
+- 箱 (包/库， 又一抽象名)
+
+包中的每个目标都是*箱*。Crates 是库或可执行二进制文件。它可能松散地引用目标的源代码或目标生成的编译工件。一个箱也可以指从注册表中提取的压缩包.
 
 ### Edition
 
-A *Rust edition* is a developmental landmark of the Rust language. The
-[edition of a package][edition-field] is specified in the `Cargo.toml`
-manifest, and individual targets can specify which edition they use. See the
-[Edition Guide] for more information.
+- 版本
+
+一个*Rust Edition*是 Rust 语言的开发里程碑。该[一个包的版本][edition-field]在`Cargo.toml`清单中指定，各个目标可以指定它们使用的版本。见[版本指南][edition guide]欲获得更多信息.
 
 ### Feature
 
-A [*feature*][feature] is a named flag which allows for conditional
-compilation. A feature can refer to an optional dependency, or an arbitrary
-name defined in a `Cargo.toml` manifest that can be checked within source
-code.
+- 特性/特征/功能
 
-Cargo has [*unstable feature flags*][cargo-unstable] which can be used to
-enable experimental behavior of Cargo itself. The Rust compiler and Rustdoc
-also have their own unstable feature flags (see [The Unstable
-Book][unstable-book] and [The Rustdoc Book][rustdoc-unstable]).
+一个[_特征_][feature]是一个允许条件编译的命名标志参数。一个特性可以引用可选的依赖项，或者在 一个`Cargo.toml` 中定义的任意名称，可以键入(使用到)源代码中。
+
+Cargo 有[_不稳定的特征标志_][cargo-unstable]，这可以用来实现 Cargo 本身的实验行为。Rust 编译器和 Rustdoc 也有自己的不稳定特征标志(参见[不稳定的书][unstable-book]和[Rustdoc 书][rustdoc-unstable]).
 
 ### Index
 
-The index is the searchable list of crates in a registry.
+- 索引是注册表中，可搜索的包的列表.
 
 ### Lock file
 
-The `Cargo.lock` *lock file* is a file that captures the exact version of
-every dependency used in a workspace or package. It is automatically generated
-by Cargo. See [Cargo.toml vs Cargo.lock].
+- (锁定/锁) 文件
+
+`Cargo.lock`，名:_锁定文件_，是一个文件，用于捕获工作空间或包中使用的每个依赖项的确切版本，它由 Cargo 自动生成。看到[Cargo.toml 与 Cargo.lock][cargo.toml vs cargo.lock].
 
 ### Manifest
 
-A [*manifest*][manifest] is a description of a package or a workspace in a
-file named `Cargo.toml`.
+- 清单/元信息
 
-A [*virtual manifest*][virtual] is a `Cargo.toml` file that only describes a
-workspace, and does not include a package.
+一个[_清单_][manifest]是对包或工作空间的描述，名为`Cargo.toml`.
+
+一个[_虚拟清单_][virtual]是一个`Cargo.toml`，仅描述工作空间的文件，不包含包。
 
 ### Member
 
-A *member* is a package that belongs to a workspace.
+- 会员/成员
+
+一个*成员*是属于工作空间的一个包.
 
 ### Package
 
-A *package* is a collection of source files and a `Cargo.toml` manifest which
-describes the package. A package has a name and version which is used for
-specifying dependencies between packages. A package contains multiple targets,
-which are either libraries or executable binaries.
+- 包
 
-The *package root* is the directory where the package's `Cargo.toml` manifest
-is located.
+一个*包*是源文件和描述包的清单`Cargo.toml`的集合。包具有名称和版本，用于指定包之间的依赖关系。包中包含多个目标，这些目标是库或可执行二进制文件。
 
-The [*package id specification*][pkgid-spec], or *SPEC*, is a string used to
-uniquely reference a specific version of a package from a specific source.
+该*包根*是`Cargo.toml`清单位于的包的目录。
+
+该[_包 ID 规范_][pkgid-spec]， 要么*SPEC*，是一个字符串，用于辨识从特定源，引用特定版本的包唯一性。
 
 ### Project
 
-Another name for a [package](#package).
+- 包/项目
+
+[package](#package)的另一个名字.
 
 ### Registry
 
-A *registry* is a service that contains a collection of downloadable crates
-that can be installed or used as dependencies for a package. The default
-registry is [crates.io](https://crates.io). The registry has an *index* which
-contains a list of all crates, and tells Cargo how to download the crates that
-are needed.
+- 注册表
+
+一个*注册处*是一种服务，包含可下载的包，可以安装或用作包的依赖项.默认注册表是[crates.io](https://crates.io)。注册表有一个*索引*，其中包含所有包装箱的清单，并告诉 Cargo 如何下载所需的箱。
 
 ### Source
 
-A *source* is a provider that contains crates that may be included as
-dependencies for a package. There are several kinds of sources:
+- 源/资源
 
-- **Registry source** — See [registry](#registry).
-- **Local registry source** — A set of crates stored as compressed files on
-  the filesystem. See [Local Registry Sources].
-- **Directory source** — A set of crates stored as uncompressed files on the
-  filesystem. See [Directory Sources].
-- **Path source** — An individual package located on the filesystem (such as a
-  [path dependency]) or a set of multiple packages (such as [path overrides]).
-- **Git source** — Packages located in a git repository (such as a [git
-  dependency] or [git source]).
+一个*源*是一个提供程序，包含箱子，这些箱子可当依赖项的包。有几种源:
 
-See [Source Replacement] for more information.
+- **注册表来源**- 见[注册表](#registry).
+- **本地注册表源**- 在文件系统上存储为压缩文件的一组包。看到[本地注册表来源][local registry sources].
+- **目录来源**- 在文件系统上存储为未压缩文件的一组包.看到[目录来源][directory sources].
+- **路径来源**- 位于文件系统上的单个包(例如[路径依赖][path dependency])或一组多个包(如[路径覆盖][path overrides]).
+- **Git 来源**- 位于 git 存储库中的包(例如[git 依赖][git dependency]要么[git 来源][git source]).
+
+看到[来源更换][source replacement]欲获得更多信息.
 
 ### Spec
 
-See [package id specification](#package).
+- 看到[包 ID 规范](#package).
 
 ### Target
 
-The meaning of the term *target* depends on the context:
+- 目标
 
-- **Cargo Target** — Cargo packages consist of *targets* which correspond to
-  artifacts that will be produced. Packages can have library, binary, example,
-  test, and benchmark targets. The [list of targets][targets] are configured
-  in the `Cargo.toml` manifest, often inferred automatically by the [directory
-  layout] of the source files.
-- **Target Directory** — Cargo places all built artifacts and intermediate
-  files in the *target* directory. By default this is a directory named
-  `target` at the workspace root, or the package root if not using a
-  workspace. The directory may be changed with the `--target-dir` command-line
-  option, the `CARGO_TARGET_DIR` [environment variable], or the
-  `build.target-dir` [config option].
-- **Target Architecture** — The OS and machine architecture for the built
-  artifacts are typically referred to as a *target*.
-- **Target Triple** — A triple is a specific format for specifying a target
-  architecture. Triples may be referred to as a *target triple* which is the
-  architecture for the artifact produced, and the *host triple* which is the
-  architecture that the compiler is running on. The target triple can be
-  specified with the `--target` command-line option or the `build.target`
-  [config option]. The general format of the triple is
-  `<arch><sub>-<vendor>-<sys>-<abi>` where:
+*Target*这个词的意思，取决于具体情况:
 
-  - `arch` = The base CPU architecture, for example `x86_64`, `i686`, `arm`,
-    `thumb`, `mips`, etc.
-  - `sub` = The CPU sub-architecture, for example `arm` has `v7`, `v7s`,
-    `v5te`, etc.
-  - `vendor` = The vendor, for example `unknown`, `apple`, `pc`, `linux`, etc.
-  - `sys` = The system name, for example `linux`, `windows`, etc. `none` is
-    typically used for bare-metal without an OS.
-  - `abi` = The ABI, for example `gnu`, `android`, `eabi`, etc.
+- **Cargo 目标** - Cargo 项目会有*target*，其具有对应将要生成的工件。项目可以包含库，二进制，示例，测试和基准目标。该[目标列表][targets]配置在`Cargo.toml`清单，通常由源文件的[目录布局][directory layout]自动推断的。
+- **目标架构**- 构建工件的 OS 和机器体系结构，通常称为一个*目标*。
+- **目标 三元(Triple)**- 三元组是用于指定目标体系结构的特定格式。见[clang 文档][clang documentation] 了解详情。三元组可以称为 一个*目标三元*，此为产生的工件的架构，以及*主机三元*，此为编译器运行的体系结构。可以使用`--target`命令行选项或`build.target` [配置选项]指定目标三元组。
+- **目标目录**- Cargo 将所有构建的工件和中间文件放入*target*目录。默认情况下，这是一个名为`target`的目录会在工作区根目录，或者包根(如果不使用工作空间)。目录随着`--target-dir`命令行选项，`CARGO_TARGET_DIR` [环境变量][environment variable]， 或者`build.target-dir`
+  [配置选项][config option]改变而改变.
 
-  Some parameters may be omitted. Run `rustc --print target-list` for a list of
-  supported targets.
+
+> “target-triple (目标 三元)" 是 编译器的 专用术语，用 “ cpu- vendor- os" 来标识 交叉编译时的 系统类型
 
 ### Test Targets
 
-Cargo *test targets* generate binaries which help verify proper operation and
-correctness of code. There are two types of test artifacts:
+Cargo*测试目标*生成二进制文件，帮助验证代码的正确操作和正确性。有两种类型的测试工件:
 
-* **Unit test** — A *unit test* is an executable binary compiled directly from
-  a library or a binary target. It contains the entire contents of the library
-  or binary code, and runs `#[test]` annotated functions, intended to verify
-  individual units of code.
-* **Integration test target** — An [*integration test
-  target*][integration-tests] is an executable binary compiled from a *test
-  target* which is a distinct crate whose source is located in the `tests`
-  directory or specified by the [`[[test]]` table][targets] in the
-  `Cargo.toml` manifest. It is intended to only test the public API of a
-  library, or execute a binary to verify its operation.
+- **单元测试**- 一个*单元测试*是直接从库或二进制目标编译的可执行二进制文件。它包含库或二进制代码的全部内容，并运行`#[test]`注释函数，用于验证各个代码单元。
+- **集成测试目标**- 一个[_集成测试目标_][integration-tests]是一个来自*测试目标*的可执行的二进制文件，这是一个独特的箱子，其来源位于`tests`目录或由在`Cargo.toml`清单里面的[`[[test]]`表][targets]指定。它旨在仅测试库的公共 API，或执行二进制文件以验证其操作。
 
 ### Workspace
 
-A [*workspace*][workspace] is a collection of one or more packages that share
-common dependency resolution (with a shared `Cargo.lock`), output directory,
-and various settings such as profiles.
+- 工作区
 
-A [*virtual workspace*][virtual] is a workspace where the root `Cargo.toml`
-manifest does not define a package, and only lists the workspace members.
+一个[_工作区_][workspace]是一个共享公共依赖项解析(具有共享`Cargo.lock`)，输出目录和各种设置，如配置文件，的一个或多个包的集合。
 
-The *workspace root* is the directory where the workspace's `Cargo.toml`
-manifest is located.
+一个[_虚拟工作区_][virtual]是`Cargo.toml`清单根目录的工作空间， 没有定义包，只列出工作区成员。
 
+该*工作区根*是工作区的`Cargo.toml`清单位于的目录.
 
-[Cargo.toml vs Cargo.lock]: guide/cargo-toml-vs-cargo-lock.html
-[Directory Sources]: reference/source-replacement.html#directory-sources
-[Local Registry Sources]: reference/source-replacement.html#local-registry-sources
-[Source Replacement]: reference/source-replacement.html
-[cargo-unstable]: https://doc.rust-lang.org/nightly/cargo/reference/unstable.html
-[config option]: reference/config.html
-[directory layout]: reference/manifest.html#the-project-layout
+[cargo.toml vs cargo.lock]: ../cargo-toml-vs-cargo-lock.zh.md
+[directory sources]: ../reference/source-replacement.zh.md#directory-sources
+[local registry sources]: ../reference/source-replacement.zh.md#local-registry-sources
+[source replacement]: ../reference/source-replacement.zh.md
+[cargo-unstable]: https://doc.rust-lang.org/nightly/cargo/reference/unstable.zh.md
+[clang documentation]: http://clang.llvm.org/docs/CrossCompilation.zh.md#target-triple
+[config option]: ../reference/config.zh.md
+[directory layout]: ../reference/manifest.zh.md#the-project-layout
 [edition guide]: https://rust-lang-nursery.github.io/edition-guide/
-[edition-field]: reference/manifest.html#the-edition-field-optional
-[environment variable]: reference/environment-variables.html
-[feature]: reference/manifest.html#the-features-section
-[git dependency]: reference/specifying-dependencies.html#specifying-dependencies-from-git-repositories
-[git source]: reference/source-replacement.html
-[integration-tests]: reference/manifest.html#integration-tests
-[manifest]: reference/manifest.html
-[path dependency]: reference/specifying-dependencies.html#specifying-path-dependencies
-[path overrides]: reference/specifying-dependencies.html#overriding-with-local-dependencies
-[pkgid-spec]: reference/pkgid-spec.html
-[rustdoc-unstable]: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.html
-[targets]: reference/manifest.html#configuring-a-target
-[unstable-book]: https://doc.rust-lang.org/nightly/unstable-book/index.html
-[virtual]: reference/manifest.html#virtual-manifest
-[workspace]: reference/manifest.html#the-workspace-section
+[edition-field]: ../reference/manifest.zh.md#the-edition-field-optional
+[environment variable]: ../reference/environment-variables.zh.md
+[feature]: ../reference/manifest.zh.md#the-features-section
+[git dependency]: ../reference/specifying-dependencies.zh.md#specifying-dependencies-from-git-repositories
+[git source]: ../reference/source-replacement.zh.md
+[integration-tests]: ../reference/manifest.zh.md#integration-tests
+[manifest]: ../reference/manifest.zh.md
+[path dependency]: ../reference/specifying-dependencies.zh.md#specifying-path-dependencies
+[path overrides]: ../reference/specifying-dependencies.zh.md#overriding-with-local-dependencies
+[pkgid-spec]: ../reference/pkgid-spec.zh.md
+[rustdoc-unstable]: https://doc.rust-lang.org/nightly/rustdoc/unstable-features.zh.md
+[targets]: ../reference/manifest.zh.md#configuring-a-target
+[unstable-book]: https://doc.rust-lang.org/nightly/unstable-book/index.zh.md
+[virtual]: ../reference/manifest.zh.md#virtual-manifest
+[workspace]: ../reference/manifest.zh.md#the-workspace-section

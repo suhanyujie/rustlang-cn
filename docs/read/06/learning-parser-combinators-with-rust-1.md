@@ -36,7 +36,7 @@
 
 我们将为简化版的 `XML` 编写一个解析器。它类似于这样：
 
-```
+```xml
 <parent-element>
   <single-element attribute="value" />
 </parent-element>
@@ -48,7 +48,7 @@
 
 我们将把这些元素解析成类似于这样的结构：
 
-```
+```rust
 #[derive(Clone, Debug, PartialEq, Eq)]
 struct Element {
     name: String,
@@ -73,13 +73,13 @@ struct Element {
 
 我们把它标记为函数类型
 
-```
+```rust
 Fn(Input) -> Result<(Input, Output), Error>
 ```
 
 更详细的说，在我们的例子中，我们要填充类型，就会得到类似下面的结果，因为我们要做的是将一个字符串转换成一个 `Element` 结构体，这一点上，我们不想将错误复杂地显示出来，所以我们只将我们无法解析的错误作为字符串返回：
 
-```
+```rust
 Fn(&str) -> Result<(&str, Element), &str>
 ```
 
@@ -93,7 +93,7 @@ Fn(&str) -> Result<(&str, Element), &str>
 
 让我们尝试编写一个解析器，它只查看字符串中的第一个字符，并判断它是否是字母 `a`。
 
-```
+```rust
 fn the_letter_a(input: &str) -> Result<(&str, ()), &str> {
   match input.chars().next() {
       Some('a') => Ok((&input['a'.len_utf8()..], ())),
@@ -118,7 +118,7 @@ fn the_letter_a(input: &str) -> Result<(&str, ()), &str> {
 
 我们想象一下：如果要写一个函数，它可以为 **任意** 长度而不仅仅是单个字符的静态字符串生成一个解析器。这样做甚至更简单一些，因为字符串 slice 是一个合法的 UTF-8 字符串 slice，并且暂且不考虑 Unicode 字符集问题。
 
-```
+```rust
 fn match_literal(expected: &'static str)
     -> impl Fn(&str) -> Result<(&str, ()), &str>
 {
@@ -143,7 +143,7 @@ fn match_literal(expected: &'static str)
 
 我们将编写一个测试来确保我们做的是对的。
 
-```
+```rust
 #[test]
 fn literal_parser() {
     let parse_joe = match_literal("Hello Joe!");
@@ -180,7 +180,7 @@ fn literal_parser() {
 
 回顾元素名称标识符的定义，它大概是这样：一个字母的字符，然后是若干个字母数字中横线 `-` 等多个字符。
 
-```
+```rust
 fn identifier(input: &str) -> Result<(&str, String), &str> {
     let mut matched = String::new();
     let mut chars = input.chars();
@@ -217,7 +217,7 @@ fn identifier(input: &str) -> Result<(&str, String), &str> {
 
 还记得我们要将 XML 文档解析为 `Element` 结构体吗？
 
-```
+```rust
 struct Element {
     name: String,
     attributes: Vec<(String, String)>,
@@ -229,7 +229,7 @@ struct Element {
 
 让我们开始测试它。
 
-```
+```rust
 #[test]
 fn identifier_parser() {
     assert_eq!(
@@ -253,7 +253,7 @@ fn identifier_parser() {
 
 现在我们可以解析开头的 `<`，然后解析接下来的标识符，但是我们需要同时解析 **这两个**，以便于能够向下运行。因此，下一步将编写另一个解析器构建器函数，该函数将两个 **解析器**　作为输入，并返回一个新的解析器，它按顺序解析这两个解析器。换句话说，是另一个解析器 **组合器**，因为它将两个解析器组合成一个新的解析器。让我们看看能不能实现它。
 
-```
+```rust
 fn pair<P1, P2, R1, R2>(parser1: P1, parser2: P2) -> impl Fn(&str) -> Result<(&str, (R1, R2)), &str>
 where
     P1: Fn(&str) -> Result<(&str, R1), &str>,
@@ -279,7 +279,7 @@ where
 
 这样的话，我们可以结合之前的两个解析器，`match_literal` 和 `identifier`，来实际的解析一下 XML 标签一开始的字节。我们写个测试测一下它是否能起作用。
 
-```
+```rust
 #[test]
 fn pair_combinator() {
     let tag_opener = pair(match_literal("<"), identifier);

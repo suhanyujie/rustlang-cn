@@ -1,11 +1,31 @@
-## The Manifest Format
+# 清单格式
 
-The `Cargo.toml` file for each package is called its *manifest*. Every manifest
-file consists of one or more sections.
+> 源[manifest.md](https://github.com/rust-lang/cargo/commits/master/src/doc/src/reference/manifest.md) &emsp; Commit: 3ca96e90eb9b79c3bcf278aceca23256a2268869
+
+每个包的这个`Cargo.toml`文件称为*清单*. 每个清单文件由一个或多个部分(表格)组成.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [`[package]` 部分](#the-package-section)
+- [依赖项 部分](#dependency-sections)
+- [`[profile.*]` 部分](#the-profile-sections)
+- [`[features]` 部分](#the-features-section)
+- [`[workspace]` 部分](#the-workspace-section)
+- [项目布局](#the-project-layout)
+- [Rust 示例](#examples)
+- [Rust 测试](#tests)
+- [配置一个 target](#configuring-a-target)
+- [`[patch]` 部分](#the-patch-section)
+- [`[replace]` 部分](#the-replace-section)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### The `[package]` section
 
-The first section in a `Cargo.toml` is `[package]`.
+> `[package]`部分
+
+`Cargo.toml`的第一部分是`[package]`.
 
 ```toml
 [package]
@@ -14,50 +34,24 @@ version = "0.1.0"    # the current version, obeying semver
 authors = ["Alice <a@example.com>", "Bob <b@example.com>"]
 ```
 
-#### The `name` field
-
-The package name is an identifier used to refer to the package. It is used
-when listed as a dependency in another package, and as the default name of
-inferred lib and bin targets.
-
-The name must not be empty, use only [alphanumeric] characters or `-` or `_`.
-Note that `cargo new` and `cargo init` impose some additional restrictions on
-the package name, such as enforcing that it is a valid Rust identifier and not
-a keyword. [crates.io][cratesio] imposes even more restrictions, such as
-enforcing only ASCII characters, not a reserved name, not a special Windows
-name such as "nul", is not too long, etc.
-
-[alphanumeric]: https://doc.rust-lang.org/std/primitive.char.html#method.is_alphanumeric
+所有这三个字段都是必要性的.
 
 #### The `version` field
 
-Cargo bakes in the concept of [Semantic
-Versioning](http://semver.org/), so make sure you follow some basic rules:
+> `version` 字段
 
-* Before you reach 1.0.0, anything goes, but if you make breaking changes,
-  increment the minor version. In Rust, breaking changes include adding fields to
-  structs or variants to enums.
-* After 1.0.0, only make breaking changes when you increment the major version.
-  Don’t break the build.
-* After 1.0.0, don’t add any new public API (no new `pub` anything) in patch-level
-  versions. Always increment the minor version if you add any new `pub` structs,
-  traits, fields, types, functions, methods or anything else.
-* Use version numbers with three numeric parts such as 1.0.0 rather than 1.0.
+Cargo 烘烤的概念是[语义版本控制](http://semver.org/)，所以确保你遵循一些基本规则:
 
-#### The `authors` field (optional)
-
-The `authors` field lists people or organizations that are considered the
-"authors" of the package. The exact meaning is open to interpretation — it may
-list the original or primary authors, current maintainers, or owners of the
-package. These names will be listed on the crate's page on
-[crates.io][cratesio]. An optional email address may be included within angled
-brackets at the end of each author.
+- 在您达到 1.0.0 之前，任何事情都会发生，但是如果您进行了重大变化的更新，则增加次要(minor)版本。在 Rust 语言中，重大变化包括，向结构添加字段，或增加变量到枚举。
+- 在 1.0.0 之后，只在增加主要(major)版本时进行重大变化。不要破坏建筑.
+- 在 1.0.0 之后，不要在补丁级别(patch)的版本添加任何新的公共 API(没有任何新的`pub`)。如果添加`pub`结构、特性、字段、类型、函数、方法或其他任何东东，则总是增加次要版本。
+- 使用具有三个数字部分的版本号，如 1.0.0，而不是 1.0。
 
 #### The `edition` field (optional)
 
-You can opt in to a specific Rust Edition for your package with the
-`edition` key in `Cargo.toml`.  If you don't specify the edition, it will
-default to 2015.
+> `edition` 字段 (可选)
+
+您可以在`Cargo.toml`中的`edition`字段，选择一个特定的 Rust 版本，用于您的包。 如果没有指定版本,它将默认为 2015。
 
 ```toml
 [package]
@@ -65,19 +59,15 @@ default to 2015.
 edition = '2018'
 ```
 
-The `edition` key affects which edition your package is compiled with. Cargo
-will always generate packages via `cargo new` with the `edition` key set to the
-latest edition. Setting the `edition` key in `[package]` will affect all
-targets/crates in the package, including test suites, benchmarks, binaries,
-examples, etc.
+这个`edition`字段会影响到您的包编译的版本。若是通过`cargo new`得来的项目，Cargo 将始终让`edition`字段设置为最新版本。设置`[package]`下的`edition`字段将影响包中的所有目标/箱，包括测试套件、基准、二进制文件、示例等。
 
 #### The `build` field (optional)
 
-This field specifies a file in the package root which is a [build script][1] for
-building native code. More information can be found in the build script
-[guide][1].
+> `build` 字段 (可选)
 
-[1]: reference/build-scripts.html
+此字段指定包根目录中的文件，该文件是[构建脚本][1]，用于生成本机代码。可以在构建脚本[指导][1]中找到更多信息..
+
+[1]: ./build-scripts.zh.md
 
 ```toml
 [package]
@@ -87,11 +77,11 @@ build = "build.rs"
 
 #### The `links` field (optional)
 
-This field specifies the name of a native library that is being linked to.
-More information can be found in the [`links`][links] section of the build
-script guide.
+> `links` 字段 (可选)
 
-[links]: reference/build-scripts.html#the-links-manifest-key
+此字段指定，要链接到的本机库名，更多信息可以在构建脚本指南的[`links`][links]部分.
+
+[links]: ./build-scripts.zh.md#the-links-manifest-key
 
 ```toml
 [package]
@@ -102,39 +92,31 @@ build = "build.rs"
 
 #### The `documentation` field (optional)
 
-This field specifies a URL to a website hosting the crate's documentation.
-If no URL is specified in the manifest file, [crates.io][cratesio] will
-automatically link your crate to the corresponding [docs.rs][docsrs] page.
+> `documentation` 字段 (可选)
 
-Documentation links from specific hosts are blacklisted. Hosts are added
-to the blacklist if they are known to not be hosting documentation and are
-possibly of malicious intent e.g. ad tracking networks. URLs from the
-following hosts are blacklisted:
+此字段指定托管箱(crate)文档的网站的 URL。如果清单文件中没有指定 URL，[crates.io][cratesio]自动将你的箱子连接到相应的箱子的[docs.rs][docsrs]页.
 
-* rust-ci.org
+来自特定主机的文档链接被列入黑名单。如果已知主机不承载文档，并且可能具有恶意意图，例如广告跟踪网络，则主机被添加到黑名单中。下列主机的 URL 就被列入黑名单:
 
-Documentation URLs from blacklisted hosts will not appear on crates.io, and
-may be replaced by docs.rs links.
+- rust-ci.org
+
+来自黑名单主机的文档 URL 将不会出现在 crates.io 上，并且可能被 docs.rs 链接替换。
 
 [docsrs]: https://docs.rs/
 [cratesio]: https://crates.io/
 
 #### The `exclude` and `include` fields (optional)
 
-You can explicitly specify to Cargo that a set of [globs][globs] should be
-ignored or included for the purposes of packaging and rebuilding a package. The
-globs specified in the `exclude` field identify a set of files that are not
-included when a package is published as well as ignored for the purposes of
-detecting when to rebuild a package, and the globs in `include` specify files
-that are explicitly included.
+> `exclude` 和 `include` 字段 (可选)
 
-If a VCS is being used for a package, the `exclude` field will be seeded with
-the VCS’ ignore settings (`.gitignore` for git for example).
+出于打包和重建包的目的，您可以显式地指定一组[globs][globs]模式，匹配项应被忽略或包含。如`exclude`字段标识了在发布包时，不包括的一组文件，以及检测何时重建包时，应该忽略的文件，而`include`就是显式指定一定包含的文件。
+
+如果一个 VCS 被用于一个包，则`exclude`字段将被植入 VCS 的忽略设置(例如 Git 的`.gitignore`)。
 
 ```toml
 [package]
 # ...
-exclude = ["build/**/*.o", "doc/**/*.html"]
+exclude = ["build/**/*.o", "doc/**/*.md"]
 ```
 
 ```toml
@@ -143,31 +125,21 @@ exclude = ["build/**/*.o", "doc/**/*.html"]
 include = ["src/**/*", "Cargo.toml"]
 ```
 
-The options are mutually exclusive: setting `include` will override an
-`exclude`. Note that `include` must be an exhaustive list of files as otherwise
-necessary source files may not be included.
+选项是相互排斥的: `include`设置覆盖`exclude`。 注意`include`必须是文件的详尽列表，否则可能不包括必要的源文件。
 
-[globs]: https://docs.rs/glob/0.2.11/glob/struct.Pattern.html
+[globs]: https://docs.rs/glob/0.2.11/glob/struct.Pattern.md
 
 #### Migrating to `gitignore`-like pattern matching
 
-The current interpretation of these configs is based on UNIX Globs, as
-implemented in the [`glob` crate](https://crates.io/crates/glob). We want
-Cargo's `include` and `exclude` configs to work as similar to `gitignore` as
-possible. [The `gitignore` specification](https://git-scm.com/docs/gitignore) is
-also based on Globs, but has a bunch of additional features that enable easier
-pattern writing and more control. Therefore, we are migrating the interpretation
-for the rules of these configs to use the [`ignore`
-crate](https://crates.io/crates/ignore), and treat them each rule as a single
-line in a `gitignore` file. See [the tracking
-issue](https://github.com/rust-lang/cargo/issues/4268) for more details on the
-migration.
+> 转移成 类`gitignore` 模式匹配
 
-#### The `publish`  field (optional)
+这些配置的当前解释实现都基于 UNIX Globs，如[`glob`箱](https://crates.io/crates/glob)。 若是我们想要 Cargo 的`include`和`exclude`尽可能配置为类似于`gitignore`。可看看[这个`gitignore`规范](https://git-scm.com/docs/gitignore)，其也是基于 Globs 的，但是还有许多其他的特性，这些特性使模式编写更容易，控制也更多。因此，我们正在迁移这些配置规则的解释实现，以使用[`ignore`箱](https://crates.io/crates/ignore)，并认真对待`gitignore`文件的每一条行规则。见[跟踪问题](https://github.com/rust-lang/cargo/issues/4268)有关迁移的更多细节。
 
-The `publish` field can be used to prevent a package from being published to a
-package registry (like *crates.io*) by mistake, for instance to keep a package
-private in a company.
+#### The `publish` field (optional)
+
+> `publish` 字段 (可选)
+
+这个`publish`字段通过错误，防止将包(crate)，发布到包注册中心(如*crates.io*)。
 
 ```toml
 [package]
@@ -175,11 +147,11 @@ private in a company.
 publish = false
 ```
 
-#### The `workspace`  field (optional)
+#### The `workspace` field (optional)
 
-The `workspace` field can be used to configure the workspace that this package
-will be a member of. If not specified this will be inferred as the first
-Cargo.toml with `[workspace]` upwards in the filesystem.
+> `workspace` 字段 (可选)
+
+这个`workspace`字段可用于配置此包将属于的工作区。如果没有指定，这将被推断为文件系统中第一个 Cargo.toml 的`[workspace]`。
 
 ```toml
 [package]
@@ -187,135 +159,124 @@ Cargo.toml with `[workspace]` upwards in the filesystem.
 workspace = "path/to/workspace/root"
 ```
 
-For more information, see the documentation for the workspace table below.
+有关更多信息，请参见下面的工作区(workspace)表格的文档.
 
 #### Package metadata
 
-There are a number of optional metadata fields also accepted under the
-`[package]` section:
+> 包 元信息
+
+`[package]`部分会接受许多可选的元数据字段:
 
 ```toml
 [package]
 # ...
 
-# A short blurb about the package. This is not rendered in any format when
-# uploaded to crates.io (aka this is not markdown).
+# 关于包的简短介绍. 这不会以任何格式呈现
+# 到 crates.io (又名 这不是markdown).
 description = "..."
 
-# These URLs point to more information about the package. These are
-# intended to be webviews of the relevant data, not necessarily compatible
-# with VCS tools and the like.
+# 这些URL指向有关包的更多信息 这些是
+# 旨在成为相关数据的网页入口， 不一定兼容
+# VCS工具(类似的)等.
 documentation = "..."
 homepage = "..."
 repository = "..."
 
-# This points to a file under the package root (relative to this `Cargo.toml`).
-# The contents of this file are stored and indexed in the registry.
-# crates.io will render this file and place the result on the crate's page.
+# 这指向包根目录下的文件 (与 `Cargo.toml` 相对的).
+# 该文件的内容会存储，并在注册表中编入索引。
+# crates.io 将渲染此文件，并将结果放在包的页面上.
 readme = "..."
 
-# This is a list of up to five keywords that describe this crate. Keywords
-# are searchable on crates.io, and you may choose any words that would
-# help someone find this crate.
+# 这是一个，最多五个描述此箱的关键字的列表. 关键词
+# 可以在 crates.io 上搜索, 和你可以选择任何单词
+# 帮助别人找到这个箱子。
 keywords = ["...", "..."]
 
-# This is a list of up to five categories where this crate would fit.
-# Categories are a fixed list available at crates.io/category_slugs, and
-# they must match exactly.
+# 这是此箱子最适合的(最多五个)类别的列表.
+# 类别是 crates.io/category_slugs 上可用的固定列表, 和
+# 他们必须完全匹配.
 categories = ["...", "..."]
 
-# This is an SPDX 2.1 license expression for this package.  Currently
-# crates.io will validate the license provided against a whitelist of
-# known license and exception identifiers from the SPDX license list
-# 2.4.  Parentheses are not currently supported.
+# 这是此包的SPDX 2.1许可证表达式.  目前
+# crates.io将根据白名单的已知许可证和SPDX许可证列表2.4中的异常标识符，
+# 验证提供的许可证。目前不支持括号。
 #
-# Multiple licenses can be separated with a `/`, although that usage
-# is deprecated.  Instead, use a license expression with AND and OR
-# operators to get more explicit semantics.
+# 使用AND和OR的许可证表达式
+# 运算符以获得更明确的语义。
 license = "..."
 
-# If a package is using a nonstandard license, then this key may be specified in
-# lieu of the above key and must point to a file relative to this manifest
-# (similar to the readme key).
+# 如果程序包使用非标准许可证, 则可以指定此 key
+# 代替上述 key 和 必须指向相对于此清单的文件
+# (类似于 readme key).
 license-file = "..."
 
-# Optional specification of badges to be displayed on crates.io.
+# 要在crates.io上显示的徽章规范，的可选项。
 #
-# - The badges pertaining to build status that are currently available are
-#   Appveyor, CircleCI, GitLab, and TravisCI.
-# - Available badges pertaining to code test coverage are Codecov and
+#  - 与当前可用的构建状态有关的徽章是
+#   Appveyor, CircleCI, GitLab, 和 TravisCI.
+# - 与代码测试覆盖有关的可用徽章是 Codecov 和
 #   Coveralls.
-# - There are also maintenance-related badges based on isitmaintained.com
-#   which state the issue resolution time, percent of open issues, and future
-#   maintenance intentions.
+# - 还有基于 isitmaintained.com的维护相关徽章
+#   其中说明了问题解决时间，未决问题的百分比和未来
+#   维护意图。
 #
-# If a `repository` key is required, this refers to a repository in
-# `user/repo` format.
+# 若要求一个`repository` key, 就表示一个`user/repo` 格式的存储库
 [badges]
 
-# Appveyor: `repository` is required. `branch` is optional; default is `master`
-# `service` is optional; valid values are `github` (default), `bitbucket`, and
-# `gitlab`; `id` is optional; you can specify the appveyor project id if you
-# want to use that instead. `project_name` is optional; use when the repository
-# name differs from the appveyor project name.
+# Appveyor: `repository` 是必须的. `branch` 是可选的; 默认为 `master`
+# `service` 是可选的; 有效值是 `github` (默认), `bitbucket`, 和
+# `gitlab`; `id` 是可选的; 如果你想改用，可以指定appveyor 项目ID.
+# `project_name` 是可选的; 使用在 repository
+# 名称 与 appveyor 项目名称 不同的情况.
 appveyor = { repository = "...", branch = "master", service = "github" }
 
-# Circle CI: `repository` is required. `branch` is optional; default is `master`
+# Circle CI: `repository` 是必须的. `branch` 是可选的; 默认为 `master`
 circle-ci = { repository = "...", branch = "master" }
 
-# GitLab: `repository` is required. `branch` is optional; default is `master`
+# GitLab: `repository` 是必须的. `branch` 是可选的; 默认为 `master`
 gitlab = { repository = "...", branch = "master" }
 
-# Travis CI: `repository` in format "<user>/<project>" is required.
-# `branch` is optional; default is `master`
+# Travis CI: `repository`为 "<user>/<project>"格式 是必须的.
+# `branch` 是可选的; 默认为 `master`
 travis-ci = { repository = "...", branch = "master" }
 
-# Codecov: `repository` is required. `branch` is optional; default is `master`
-# `service` is optional; valid values are `github` (default), `bitbucket`, and
+# Codecov: `repository` 是必须的. `branch` 是可选的; 默认为 `master`
+# `service` 是可选的; 有效值是 `github` (默认), `bitbucket`, 和
 # `gitlab`.
 codecov = { repository = "...", branch = "master", service = "github" }
 
-# Coveralls: `repository` is required. `branch` is optional; default is `master`
-# `service` is optional; valid values are `github` (default) and `bitbucket`.
+# Coveralls: `repository` 是必须的. `branch` 是可选的; 默认为 `master`
+# `service` 是可选的; 有效值是 `github` (默认) 和 `bitbucket`.
 coveralls = { repository = "...", branch = "master", service = "github" }
 
-# Is it maintained resolution time: `repository` is required.
+# 是否保持解决时间: `repository` 是必须的.
 is-it-maintained-issue-resolution = { repository = "..." }
 
-# Is it maintained percentage of open issues: `repository` is required.
+# 它是否保持未解决问题的百分比: `repository` 是必须的.
 is-it-maintained-open-issues = { repository = "..." }
 
-# Maintenance: `status` is required. Available options are `actively-developed`,
+# Maintenance: `status` 是必须的. 可用的选项是 `actively-developed`,
 # `passively-maintained`, `as-is`, `experimental`, `looking-for-maintainer`,
-# `deprecated`, and the default `none`, which displays no badge on crates.io.
+# `deprecated`, 和 默认为 `none`, 不会在 crates.io 显示徽章.
 maintenance = { status = "..." }
 ```
 
-The [crates.io](https://crates.io) registry will render the description, display
-the license, link to the three URLs and categorize by the keywords. These keys
-provide useful information to users of the registry and also influence the
-search ranking of a crate. It is highly discouraged to omit everything in a
-published crate.
+这个[crates.io](https://crates.io)注册中心将呈现描述、显示许可证、链接到三个 URL 并根据关键字进行分类。这些字段为注册表的用户提供有用的信息，并且还影响箱子的搜索排名。在发布箱的'展示栏'，省略任何东西都是非常令人沮丧的。
 
-SPDX 2.1 license expressions are documented
-[here][spdx-2.1-license-expressions].  The current version of the
-license list is available [here][spdx-license-list], and version 2.4
-is available [here][spdx-license-list-2.4].
+SPDX 2.1 许可证表达式被记录在案[在这里][spdx-2.1-license-expressions]。 许可证列表的当前版本可用的，[在这里][spdx-license-list]，版本 2.4 是可用的，[在这里][spdx-license-list-2.4].
 
 #### The `metadata` table (optional)
 
-Cargo by default will warn about unused keys in `Cargo.toml` to assist in
-detecting typos and such. The `package.metadata` table, however, is completely
-ignored by Cargo and will not be warned about. This section can be used for
-tools which would like to store package configuration in `Cargo.toml`. For
-example:
+> `metadata` 表格 (可选)
+
+默认情况下，Cargo 将对`Cargo.toml`不使用的字段发出警告，协助检测错别字等。就像这个`package.metadata`表格，但是，完全不写了的话， Cargo 将不会被警告。这个表格可在`Cargo.toml`，用于将包配置存储好。 例如:
 
 ```toml
 [package]
 name = "..."
 # ...
 
-# Metadata used when generating an Android APK, for example.
+# 当要生成一个 Android APK，这个元信息会被使用, 例如.
 [package.metadata.android]
 package-name = "my-awesome-android-app"
 assets = "path/to/static"
@@ -323,49 +284,45 @@ assets = "path/to/static"
 
 ### Dependency sections
 
-See the [specifying dependencies page](reference/specifying-dependencies.html) for
-information on the `[dependencies]`, `[dev-dependencies]`,
-`[build-dependencies]`, and target-specific `[target.*.dependencies]` sections.
+> 依赖 部分
+
+见[指定依赖-那页](./specifying-dependencies.zh.md)有关`[dependencies]`，`[dev-dependencies]`，`[build-dependencies]`和特定目标的`[target.*.dependencies]`部分的信息。
 
 ### The `[profile.*]` sections
 
-Cargo supports custom configuration of how rustc is invoked through profiles at
-the top level. Any manifest may declare a profile, but only the top level
-package’s profiles are actually read. All dependencies’ profiles will be
-overridden. This is done so the top-level package has control over how its
-dependencies are compiled.
+> `[profile.*]` 部分
 
-There are four currently supported profile names, all of which have the same
-configuration available to them. Listed below is the configuration available,
-along with the defaults for each profile.
+Cargo 支持了，可通过顶层 配置文件(profile) 调用 rustc 的自定义配置。任何清单都可以声明一个配置文件，但是实际上只读取顶级包的配置文件。所有依赖项的配置文件都将被重写，这样做是为了让顶级包能够控制，其依赖项如何编译的。
+
+目前有四个受支持的配置文件名称，它们都具有相同的配置。下面列出了可用的配置，以及每个配置文件的默认设置.
 
 ```toml
-# The development profile, used for `cargo build`.
+# 此为 开发配置文件, 给 `cargo build` 所使用.
 [profile.dev]
-opt-level = 0      # controls the `--opt-level` the compiler builds with.
-                   # 0-1 is good for debugging. 2 is well-optimized. Max is 3.
-                   # 's' attempts to reduce size, 'z' reduces size even more.
-debug = true       # (u32 or bool) Include debug information (debug symbols).
-                   # Equivalent to `-C debuginfo=2` compiler flag.
-rpath = false      # controls whether compiler should set loader paths.
-                   # If true, passes `-C rpath` flag to the compiler.
-lto = false        # Link Time Optimization usually reduces size of binaries
-                   # and static libraries. Increases compilation time.
-                   # If true, passes `-C lto` flag to the compiler, and if a
-                   # string is specified like 'thin' then `-C lto=thin` will
-                   # be passed.
-debug-assertions = true # controls whether debug assertions are enabled
-                   # (e.g. debug_assert!() and arithmetic overflow checks)
-codegen-units = 16 # if > 1 enables parallel code generation which improves
-                   # compile times, but prevents some optimizations.
-                   # Passes `-C codegen-units`.
-panic = 'unwind'   # panic strategy (`-C panic=...`), can also be 'abort'
-incremental = true # whether or not incremental compilation is enabled
-overflow-checks = true # use overflow checks for integer arithmetic.
-                   # Passes the `-C overflow-checks=...` flag to the compiler.
+opt-level = 0      # 控制编译器构建的`--opt-level`。
+                   # 0-1适合调试。 2是良好优化的。最大为 3。
+                   # 's' 企图优化大小, 'z' 则 进一步优化大小.
+debug = true       # (u32 or bool) 包括调试信息（调试符号）.
+                   # 相当于 `-C debuginfo=2` 编译器 标志.
+rpath = false      # 控制 编译器 是否应该设置加载器路径.
+                   # 若为 true, 传递 `-C rpath` 标志 给 编译器.
+lto = false        # 链接时间优化通常会减少二进制文件和静态库的大小
+                   # 但会增加编译时间.
+                   # 若是 true, 传递 `-C lto` 标志 给 编译器, 和 若是一个
+                   # 字符串值 像 'thin' ，那会传递 `-C lto=thin`
+                   # 给 编译器
+debug-assertions = true # 控制是否启用调试断言
+                   # (e.g. debug_assert!() 和 算术溢出检查)
+codegen-units = 16 # if > 1 并行代码生成，以改善
+                   # 编译时间, 但阻止了些优化.
+                   # 传递 `-C codegen-units`.
+panic = 'unwind'   # 恐慌策略 (`-C panic=...`), 也可以是 'abort'
+incremental = true # 是否启用增量编译
+overflow-checks = true # 使用溢出检查进行整数运算。
+                   # 传递 `-C overflow-checks=...`标志 给 compiler.
 
-# The release profile, used for `cargo build --release` (and the dependencies
-# for `cargo test --release`,  including the local library or binary).
+# 发布(release)的配置文件, 用于 `cargo build --release` (和 依赖项的
+# `cargo test --release`,  包括本地 library 或 binary).
 [profile.release]
 opt-level = 3
 debug = false
@@ -377,8 +334,8 @@ panic = 'unwind'
 incremental = false
 overflow-checks = false
 
-# The testing profile, used for `cargo test` (for `cargo test --release` see
-# the `release` and `bench` profiles).
+# 测试的配置文件, 用于 `cargo test` (对于 `cargo test --release`，可看
+# `release` 和 `bench` 配置文件).
 [profile.test]
 opt-level = 0
 debug = 2
@@ -390,8 +347,8 @@ panic = 'unwind'
 incremental = true
 overflow-checks = true
 
-# The benchmarking profile, used for `cargo bench` (and the test targets and
-# unit tests for `cargo test --release`).
+# 基准的配置文件, 用于`cargo bench` (和 要测试的目标 和
+# 单元测试的 `cargo test --release`).
 [profile.bench]
 opt-level = 3
 debug = false
@@ -406,198 +363,158 @@ overflow-checks = false
 
 ### The `[features]` section
 
-Cargo supports features to allow expression of:
+> `[features]` 部分
 
-* conditional compilation options (usable through `cfg` attributes);
-* optional dependencies, which enhance a package, but are not required; and
-* clusters of optional dependencies, such as `postgres`, that would include the
-  `postgres` package, the `postgres-macros` package, and possibly other packages
-  (such as development-time mocking libraries, debugging tools, etc.).
+Cargo 支持特性，允许表达:
 
-A feature of a package is either an optional dependency, or a set of other
-features. The format for specifying features is:
+- 条件编译选项(通过`cfg`属性);
+- 可选的依赖项，增强了包，但不是必需的;还有
+- 可选依赖项的簇，如`postgres`，其中就包括`postgres`包`postgres-macros`包，以及可能的其他包(如开发时的模拟库、调试工具等)。
+
+包的特性也可以是可选的依赖项，也可以是一组其他特性。指定特性的格式是:
 
 ```toml
 [package]
 name = "awesome"
 
 [features]
-# The default set of optional packages. Most people will want to use these
-# packages, but they are strictly optional. Note that `session` is not a package
-# but rather another feature listed in this manifest.
+# 默认的可选包集。大多数人都想使用这些
+# 包, 但它们是严格可选的。请注意，`session`不是包
+# 而是此清单中列出的另一个功能。
 default = ["jquery", "uglifier", "session"]
 
-# A feature with no dependencies is used mainly for conditional compilation,
-# like `#[cfg(feature = "go-faster")]`.
+# 没有依赖关系的特性，主要用于条件编译，
+# 像 `#[cfg(feature = "go-faster")]`.
 go-faster = []
 
-# The `secure-password` feature depends on the bcrypt package. This aliasing
-# will allow people to talk about the feature in a higher-level way and allow
-# this package to add more requirements to the feature in the future.
+# `secure-password` 特性 需要 bcrypt 包. 这种别名
+将允许人们以更高级别的方式讨论该 特性 和 允许
+# 此软件包将在未来为该特性添加更多要求.
 secure-password = ["bcrypt"]
 
-# Features can be used to reexport features of other packages. The `session`
-# feature of package `awesome` will ensure that the `session` feature of the
-# package `cookie` is also enabled.
+# 特性可用于重新导出其他包的特性. `awesome`包的 `session`
+# 特性将确保 cookie/session 也是可用的
 session = ["cookie/session"]
 
 [dependencies]
-# These packages are mandatory and form the core of this package’s distribution.
+# 这些包是强制性的，是该软件包发行版的核心。
 cookie = "1.2.0"
 oauth = "1.1.0"
 route-recognizer = "=2.1.0"
 
-# A list of all of the optional dependencies, some of which are included in the
-# above `features`. They can be opted into by apps.
+# 所以可选依赖项的列表, 其中一些是上面的
+# `features`. 它们可以通过应用程序选择加入。
 jquery = { version = "1.0.2", optional = true }
 uglifier = { version = "1.5.3", optional = true }
 bcrypt = { version = "*", optional = true }
 civet = { version = "*", optional = true }
 ```
 
-To use the package `awesome`:
+使用`awesome`包:
 
 ```toml
 [dependencies.awesome]
 version = "1.3.5"
-default-features = false # do not include the default features, and optionally
-                         # cherry-pick individual features
+default-features = false # 不包括默认功能，和可选,
+                         # 任君选 个性化特性
 features = ["secure-password", "civet"]
 ```
 
 #### Rules
 
-The usage of features is subject to a few rules:
+> 规则
 
-* Feature names must not conflict with other package names in the manifest. This
-  is because they are opted into via `features = [...]`, which only has a single
-  namespace.
-* With the exception of the `default` feature, all features are opt-in. To opt
-  out of the default feature, use `default-features = false` and cherry-pick
-  individual features.
-* Feature groups are not allowed to cyclically depend on one another.
-* Dev-dependencies cannot be optional.
-* Features groups can only reference optional dependencies.
-* When a feature is selected, Cargo will call `rustc` with `--cfg
-  feature="${feature_name}"`. If a feature group is included, it and all of its
-  individual features will be included. This can be tested in code via
-  `#[cfg(feature = "foo")]`.
+特性的使用遵循一些规则:
 
-Note that it is explicitly allowed for features to not actually activate any
-optional dependencies. This allows packages to internally enable/disable
-features without requiring a new dependency.
+- 特性名称不能与清单中的其他包名称冲突。这是因为他们被选择加入`features = [...]`，而它只有一个命名空间。
+- 除此`default`特性之外，所有的特性都是可选的。若要退出默认功能，请使用`default-features = false`，任君选择个人特性.
+- 特性群组不允许周期性地相互依赖.
+- 开发 依赖项不能是可选的.
+- 特性群组只能引用可选的依赖项.
+- 当选择一个特性时，Cargo 将调用具有`--cfg feature="${feature_name}"`的`rustc`。如果包含一个特性群组，那么它将包括所有单独的特性。这可以通过`#[cfg(feature = "foo")]`在代码中进行测试..
+
+主要注意的是，显露的特性，实际上不激活任何可选的依赖项。这就允许包在不需要新的依赖项的情况下，于内部启用/禁用特性。
 
 #### Usage in end products
 
-One major use-case for this feature is specifying optional features in
-end-products. For example, the Servo package may want to include optional
-features that people can enable or disable when they build it.
+> 生产终点的用法
 
-In that case, Servo will describe features in its `Cargo.toml` and they can be
-enabled using command-line flags:
+该特性的一个主要用例是在最终产品中，指定可选特性。例如，Servo 包可能希望包含可选特性，人们可以在构建时，启用或禁用它。
+
+在这种情况下，Servo 将在`Cargo.toml`描述特性，且用命令行标志来启用这些特性:
 
 ```console
 $ cargo build --release --features "shumway pdf"
 ```
 
-Default features could be excluded using `--no-default-features`.
+可以使用`--no-default-features`，排除默认特性。
 
 #### Usage in packages
 
-In most cases, the concept of *optional dependency* in a library is best
-expressed as a separate package that the top-level application depends on.
+> 包(库)的用法
 
-However, high-level packages, like Iron or Piston, may want the ability to
-curate a number of packages for easy installation. The current Cargo system
-allows them to curate a number of mandatory dependencies into a single package
-for easy installation.
+在大多数情况下，在库中*可选依赖*的概念，最好将其表示为顶级应用程序所依赖的单独包。
 
-In some cases, packages may want to provide additional curation for optional
-dependencies:
+然而，像 Iron 或 Piston 这样的高级软件包会需要排布多个软件包以便于安装。当前的 Cargo 系统允许它们将一些强制依赖项，整合到一个包中，以便于安装。
 
-* grouping a number of low-level optional dependencies together into a single
-  high-level feature;
-* specifying packages that are recommended (or suggested) to be included by
-  users of the package; and
-* including a feature (like `secure-password` in the motivating example) that
-  will only work if an optional dependency is available, and would be difficult
-  to implement as a separate package (for example, it may be overly difficult to
-  design an IO package to be completely decoupled from OpenSSL, with opt-in via
-  the inclusion of a separate package).
+在某些情况下，包可能希望为可选依赖项，提供额外的管理:
 
-In almost all cases, it is an antipattern to use these features outside of
-high-level packages that are designed for curation. If a feature is optional, it
-can almost certainly be expressed as a separate package.
+- 将多个低层可选依赖项，组合到一个单独的高级特性中;
+- 由包用户指定推荐(或建议)要包括的包;
+- 包括特性(类似`secure-password`在激励示例中)，这只在可选的依赖项可用时才能工作，并且很难实现为单独的包(例如，设计一个与 OpenSSL 完全解耦的 IO 包可能过于困难，那这时，就可通过包含单独的包来选择相关特性)。
+
+在几乎所有情况下，在设计牢固的高级包之外，使用这些特性都是反模式的。如果某个特性是可选的，那么它几乎可以肯定地表示为单独的包。
 
 ### The `[workspace]` section
 
-Packages can define a workspace which is a set of crates that will all share the
-same `Cargo.lock` and output directory. The `[workspace]` table can be defined
-as:
+> `[workspace]` 部分
+
+包可以定义一个工作区，它是一组箱，所有箱将共享相同`Cargo.lock`和输出目录。这个`[workspace]`表格可以定义为:
 
 ```toml
 [workspace]
 
-# Optional key, inferred from path dependencies if not present.
-# Additional non-path dependencies that should be included must be given here.
-# In particular, for a virtual manifest, all members have to be listed.
+# 可选字段，从路径依赖推断（如果不存在）。
+# 此处必须给出，包含的其他非路径依赖。
+# 特别是, 对于 一个虚拟清单，所有成员都要列出来。
 members = ["path/to/member1", "path/to/member2", "path/to/member3/*"]
 
-# Optional key, empty if not present.
+# 可选字段, 如果不存在则为空
 exclude = ["path1", "path/to/dir2"]
 ```
 
-Workspaces were added to Cargo as part of [RFC 1525] and have a number of
-properties:
+工作区作为 Cargo 的[RFC 1525]一部分被添加到 Cargo 中，并具有许多属性:
 
-* A workspace can contain multiple crates where one of them is the *root crate*.
-* The *root crate*'s `Cargo.toml` contains the `[workspace]` table, but is not
-  required to have other configuration.
-* Whenever any crate in the workspace is compiled, output is placed in the
-  *workspace root*. i.e. next to the *root crate*'s `Cargo.toml`.
-* The lock file for all crates in the workspace resides in the *workspace root*.
-* The `[patch]`, `[replace]` and `[profile.*]` sections in `Cargo.toml`
-  are only recognized
-  in the *root crate*'s manifest, and ignored in member crates' manifests.
+- 工作区可以包含多个箱，其中一个是*根箱*.
+- 这个*根箱*的`Cargo.toml`包含`[workspace]`表格，但不要求必有其他配置.
+- 每当编译工作区中的任何箱时，输出被放置在*工作区根*。 即紧挨着*根箱*的`Cargo.toml`.
+- 工作区中所有箱的那个锁定文件驻留在*工作区根*.
+- 在`Cargo.toml`的`[patch]`，`[replace]`和`[profile.*]`部分，只认*根箱*的清单，而忽略成员箱的。
 
-[RFC 1525]: https://github.com/rust-lang/rfcs/blob/master/text/1525-cargo-workspace.md
+[rfc 1525]: https://github.com/rust-lang/rfcs/blob/master/text/1525-cargo-workspace.md
 
-The *root crate* of a workspace, indicated by the presence of `[workspace]` in
-its manifest, is responsible for defining the entire workspace. All `path`
-dependencies residing in the workspace directory become members. You can add
-additional packages to the workspace by listing them in the `members` key. Note
-that members of the workspaces listed explicitly will also have their path
-dependencies included in the workspace. Sometimes a package may have a lot of
-workspace members and it can be onerous to keep up to date. The path dependency
-can also use [globs][globs] to match multiple paths. Finally, the `exclude`
-key can be used to blacklist paths from being included in a workspace. This can
-be useful if some path dependencies aren't desired to be in the workspace at
-all.
+这个工作区的*根箱*，由其清单中存在的`[workspace]`指定，并负责定义整个工作区。所有驻留在工作区目录中的`path`依赖项都变成成员。您可以通过`members`字段将附加包添加到工作区中。请注意，显式列出的工作区成员，也在工作区中包含了它们的路径依赖项。有时候，一个包可能有很多工作区成员，并且都保持最新会很麻烦。
 
-The `package.workspace` manifest key (described above) is used in member crates
-to point at a workspace's root crate. If this key is omitted then it is inferred
-to be the first crate whose manifest contains `[workspace]` upwards in the
-filesystem.
+路径依赖也可以使用[globs][globs]匹配多个路径。
+最后，`exclude`字段 可以用于将工作路径中的路径列入黑名单。如果根本不希望某些路径依赖项存在于工作区中，那么这非常有用.
 
-A crate may either specify `package.workspace` or specify `[workspace]`. That
-is, a crate cannot both be a root crate in a workspace (contain `[workspace]`)
-and also be a member crate of another workspace (contain `package.workspace`).
+这个`package.workspace`清单字段(如上所述)用于成员箱中，以指向工作区的根箱。如果省略此字段，则推断它是文件系统(向上的父目录)中，清单包含`[workspace]`的第一个箱。
 
-Most of the time workspaces will not need to be dealt with as `cargo new` and
-`cargo init` will handle workspace configuration automatically.
+箱可以指定`package.workspace`或指定`[workspace]`。 也就是说，箱不能同时作为工作区中的根箱(包含`[workspace]`)，和另一个工作区的成员箱(包含`package.workspace`)
+
+大多数时间工作区都不需要处理。因`cargo new`和`cargo init`将自动处理工作区配置。
 
 #### Virtual Manifest
 
-In workspace manifests, if the `package` table is present, the workspace root
-crate will be treated as a normal package, as well as a workspace. If the
-`package` table is not present in a workspace manifest, it is called a *virtual
-manifest*.
+> 虚拟清单
+
+在工作区清单中，如果`package`表格存在，则工作区根箱将被视为普通包和工作区。如果`package`表格不存在工作区清单中，那它被称为*虚拟清单*。
 
 #### Package selection
 
-In a workspace, package-related cargo commands like `cargo build` apply to
-packages selected by `-p` / `--package` or `--all` command-line parameters.
-When neither is specified, the optional `default-members` configuration is used:
+> Package 部分
+
+在工作区中，与包相关的 Cargo 命令，如`cargo build`，会应用`-p` / `--package`或`--all`命令行参数选定的包。当未指定时，可选`default-members`配置被使用:
 
 ```toml
 [workspace]
@@ -605,72 +522,59 @@ members = ["path/to/member1", "path/to/member2", "path/to/member3/*"]
 default-members = ["path/to/member2", "path/to/member3/foo"]
 ```
 
-When specified, `default-members` must expand to a subset of `members`.
+`default-members`指定时，必会扩展到子集的`members`中.
 
-When `default-members` is not specified, the default is the root manifest
-if it is a package, or every member manifest (as if `--all` were specified
-on the command-line) for virtual workspaces.
+若是`default-members`未指定，如果它是包，则默认为根清单，或者若是虚拟工作区，就为每个成员的清单(如同`--all`在命令行上).
 
 ### The project layout
 
-If your package is an executable, name the main source file `src/main.rs`. If it
-is a library, name the main source file `src/lib.rs`.
+> 项目布局
 
-Cargo will also treat any files located in `src/bin/*.rs` as executables. If your
-executable consists of more than just one source file, you might also use a directory
-inside `src/bin` containing a `main.rs` file which will be treated as an executable
-with a name of the parent directory.
-Do note, however, once you add a `[[bin]]` section ([see
-below](#configuring-a-target)), Cargo will no longer automatically build files
-located in `src/bin/*.rs`.  Instead you must create a `[[bin]]` section for
-each file you want to build.
+如果包是可执行文件，则将主源文件命名为`src/main.rs`。 如果它是一个库，请命名主源文件`src/lib.rs`。
 
-Your package can optionally contain folders named `examples`, `tests`, and
-`benches`, which Cargo will treat as containing examples,
-integration tests, and benchmarks respectively. Analogous to `bin` targets, they
-may be composed of single files or directories with a `main.rs` file.
+Cargo 也将处理位于`src/bin/*.rs`任何文件作为可执行文件。如果可执行文件包含不止一个源文件，则可以使用`src/bin`目录下，又一个包含`main.rs`文件的目录，而该目录将被视为具有父目录名称的可执行文件。但是，一旦添加了`[[bin]]`部分[见下文](#configuring-a-target)，Cargo 将不再自动建立`src/bin/*.rs`文件。 相反，你必须创建一个`[[bin]]`部分，给出你想要生成的每个文件。
+
+<!-- HERE -->
+
+您的包可以(可选地)包含命名为`examples`，`tests`和`benches`文件夹，Cargo 将分别将其视为包含示例、集成测试和基准。类似于`bin`目标，它们可以由单个文件或拥有`main.rs`文件的目录组成。
 
 ```
-▾ src/           # directory containing source files
-  lib.rs         # the main entry point for libraries and packages
-  main.rs        # the main entry point for packages producing executables
-  ▾ bin/         # (optional) directory containing additional executables
+▾ src/           # 包含源文件的目录
+  lib.rs         # 库和包的主要入口点
+  main.rs        # 包生成可执行文件的主要入口点
+  ▾ bin/         # （可选）包含其他可执行文件的目录
     *.rs
-  ▾ */           # (optional) directories containing multi-file executables
+  ▾ */           # （可选）包含多文件可执行文件的目录
     main.rs
-▾ examples/      # (optional) examples
+▾ examples/      # （可选）示例
   *.rs
-  ▾ */           # (optional) directories containing multi-file examples
+  ▾ */           # （可选）包含多文件示例的目录
     main.rs
-▾ tests/         # (optional) integration tests
+▾ tests/         # （可选）集成测试
   *.rs
-  ▾ */           # (optional) directories containing multi-file tests
+  ▾ */           # （可选）包含多文件测试的目录
     main.rs
-▾ benches/       # (optional) benchmarks
+▾ benches/       # （可选）基准
   *.rs
-  ▾ */           # (optional) directories containing multi-file benchmarks
+  ▾ */           # （可选）包含多文件基准的目录
     main.rs
 ```
 
-To structure your code after you've created the files and folders for your
-package, you should remember to use Rust's module system, which you can read
-about in [the book](https://doc.rust-lang.org/book/crates-and-modules.html).
+为了在创建文件和文件夹之后，为包构造代码，应该记住使用 Rust 的模块系统，您可以在这本[书](https://doc.rust-lang.org/book/crates-and-modules.md)找到。
+
+> (译)：[中文](https://kaisery.github.io/trpl-zh-cn/ch07-00-packages-crates-and-modules.html)
 
 ### Examples
 
-Files located under `examples` are example uses of the functionality provided by
-the library. When compiled, they are placed in the `target/examples` directory.
+> 示例
 
-They can compile either as executables (with a `main()` function) or libraries
-and pull in the library by using `extern crate <library-name>`. They are
-compiled when you run your tests to protect them from bitrotting.
+位于`examples`下方的文件，是库提供的功能示例用法。编译时，它们被放置在`target/examples`目录。
 
-You can run individual executable examples with the command `cargo run --example
-<example-name>`.
+它们可以编译为可执行文件(用`main()`函数)或，库。和可通过使用`extern crate <library-name>`导入库。 当您运行测试以保护它们免遭篡改时，它们会被编译。
 
-Specify `crate-type` to make an example be compiled as a library (additional
-information about crate types is available in
-[The Rust Reference](https://doc.rust-lang.org/reference/linkage.html)):
+可以使用命令`cargo run --example <example-name>`运行单个可执行示例.
+
+指定`crate-type`将示例编译为库(有关箱类型的附加信息可在[Rust 参考](https://doc.rust-lang.org/reference/linkage.html)找到):
 
 ```toml
 [[example]]
@@ -678,110 +582,89 @@ name = "foo"
 crate-type = ["staticlib"]
 ```
 
-You can build individual library examples with the command `cargo build
---example <example-name>`.
+可以使用命令`cargo build --example <example-name>`构建单个库实例.
 
 ### Tests
 
-When you run `cargo test`, Cargo will:
+> 测试
 
-* compile and run your library’s unit tests, which are in the files reachable
-  from `lib.rs` (naturally, any sections marked with `#[cfg(test)]` will be
-  considered at this stage);
-* compile and run your library’s documentation tests, which are embedded inside
-  of documentation blocks;
-* compile and run your library’s [integration tests](#integration-tests); and
-* compile your library’s examples.
+当你运行`cargo test`，Cargo 会:
+
+- 编译并运行库的单元测试，这些测试位于`lib.rs`(当然，任何标记为`#[cfg(test)]`部分将考虑为同个阶段);
+- 编译并运行嵌入到文档区块内部的库的文档测试;
+- 编译并运行您库的[集成测试](#integration-tests)和
+- 编译你库的例子.
 
 #### Integration tests
 
-Each file in `tests/*.rs` is an integration test. When you run `cargo test`,
-Cargo will compile each of these files as a separate crate. The crate can link
-to your library by using `extern crate <library-name>`, like any other code that
-depends on it.
+> 集成测试
 
-Cargo will not automatically compile files inside subdirectories of `tests`, but
-an integration test can import modules from these directories as usual. For
-example, if you want several integration tests to share some code, you can put
-the shared code in `tests/common/mod.rs` and then put `mod common;` in each of
-the test files.
+在`tests/*.rs`的每个文件是一个集成测试。当你运行`cargo test`，Cargo 将编译每个文件作为一个单独的箱子。箱可以通过使用`extern crate <library-name>`链接(导入)您的库，就像其他导入项一样。
+
+Cargo 不会自动编译`tests`子目录内的文件，但是，集成测试可以像往常一样从这些目录导入模块。例如，如果希望多个集成测试共享一些代码，可以将共享代码放入`tests/common/mod.rs`，然后为每个测试文件添加`mod common;`。
 
 ### Configuring a target
 
-All of the  `[[bin]]`, `[lib]`, `[[bench]]`, `[[test]]`, and `[[example]]`
-sections support similar configuration for specifying how a target should be
-built. The double-bracket sections like `[[bin]]` are array-of-table of
-[TOML](https://github.com/toml-lang/toml#array-of-tables), which means you can
-write more than one `[[bin]]` section to make several executables in your crate.
+> 配置为一个目标
 
-The example below uses `[lib]`, but it also applies to all other sections
-as well. All values listed are the defaults for that option unless otherwise
-specified.
+所有的`[[bin]]`，`[lib]`，`[[bench]]`，`[[test]]`和`[[example]]`部分都支持类似的配置，用于指定应该如何构建目标。双括号`[[bin]]`部分，是[TOML](https://github.com/toml-lang/toml#array-of-tables)格式的数组。这意味着你可以在您的箱中写多个`[[bin]]`，这样就会生成几个可执行文件。
+
+下面的例子使用`[lib]`，但它也适用于所有其他部分。除非另有说明，下面所有列出的值都是对应选项的**默认值**。
 
 ```toml
 [package]
 # ...
 
 [lib]
-# The name of a target is the name of the library that will be generated. This
-# is defaulted to the name of the package, with any dashes replaced
-# with underscores. (Rust `extern crate` declarations reference this name;
-# therefore the value must be a valid Rust identifier to be usable.)
+# 生成目标与库的名称. 本该默认是
+# 包名, 替换所有破折号
+# 为 下划线. (Rust `extern crate` 声明会参考该名;
+# 因此，该值必须是可用的有效Rust标识符.)
 name = "foo"
 
-# This field points at where the crate is located, relative to the `Cargo.toml`.
+# 该字段，指向 crate 的入口(位置), 路径相对于 `Cargo.toml`.
 path = "src/lib.rs"
 
-# A flag for enabling unit tests for this target. This is used by `cargo test`.
+# 一个给目标启用单元测试 的 标志. 会被 `cargo test`使用.
 test = true
 
-# A flag for enabling documentation tests for this target. This is only relevant
-# for libraries, it has no effect on other sections. This is used by
-# `cargo test`.
+# 一个给目标启用文档测试 的 标志. 只与库相关
+# , 不会影响其他部分。会被
+# `cargo test`使用.
 doctest = true
 
-# A flag for enabling benchmarks for this target. This is used by `cargo bench`.
+# 一个给目标启用基准 的 标志. 会被 `cargo bench`使用.
 bench = true
 
-# A flag for enabling documentation of this target. This is used by `cargo doc`.
+# 一个给目标启用文档 的 标志. 会被 `cargo doc`使用.
 doc = true
 
-# If the target is meant to be a compiler plugin, this field must be set to true
-# for Cargo to correctly compile it and make it available for all dependencies.
+# 若该目标为 编译器扩展, 那要把该字段设为 true
+# ，以让 Cargo 正确编译和，可用于所有依赖项.
 plugin = false
 
-# If the target is meant to be a "macros 1.1" procedural macro, this field must
-# be set to true.
+# 若该目标为 "macros 1.1" 程序宏, 那要把该字段设为 true
 proc-macro = false
 
-# If set to false, `cargo test` will omit the `--test` flag to rustc, which
-# stops it from generating a test harness. This is useful when the binary being
-# built manages the test runner itself.
+# 若设为 false, `cargo test` 会为 rustc 省略 `--test` 标志, 这
+# 阻止它生成测试工具 这在二进制存在，
+# 构建管理测试运行器本身的情况下，有用.
 harness = true
 
-# If set then a target can be configured to use a different edition than the
-# `[package]` is configured to use, perhaps only compiling a library with the
-# 2018 edition or only compiling one unit test with the 2015 edition. By default
-# all targets are compiled with the edition specified in `[package]`.
+# 若设置了，那 目标会使用一个与`[package]`配置不同的版本
+# , 也许是，编译一个库
+2018年版本或，编译单元测试的2015年版本. 默认情况下
+# 所有目标都使用`[package]`中指定的版本进行编译。
 edition = '2015'
-
-# Here's an example of a TOML "array of tables" section, in this case specifying
-# a binary target name and path.
-[[bin]]
-name = "my-cool-binary"
-path = "src/my-cool-binary.rs"
 ```
 
-The `[package]` also includes the optional `autobins`, `autoexamples`,
-`autotests`, and `autobenches` keys to explicitly opt-in or opt-out of
-auto-discovering specific target kinds.
+这个`[package]`还包括可选的`autobins`,`autoexamples`,`autotests`和`autobenches`，来明确 进入/退出 自动发现特定的目标种类。
 
 #### The `required-features` field (optional)
 
-The `required-features` field specifies which features the target needs in order
-to be built. If any of the required features are not selected, the target will
-be skipped. This is only relevant for the `[[bin]]`, `[[bench]]`, `[[test]]`,
-and `[[example]]` sections, it has no effect on `[lib]`.
+> `required-features` 字段 (可选)
+
+这个`required-features`字段指定目标需要构建的特性。如果未选择任何所需的特性，则将跳过目标。这只与`[[bin]]`，`[[bench]]`，`[[test]]`和`[[example]]`部分有影响，它没有影响`[lib]`。
 
 ```toml
 [features]
@@ -797,27 +680,27 @@ required-features = ["postgres", "tools"]
 
 #### Building dynamic or static libraries
 
-If your package produces a library, you can specify which kind of library to
-build by explicitly listing the library in your `Cargo.toml`:
+> 构建 动态 或 静态 库
+
+如果您的包生成一个库，则可以通过在`Cargo.toml`显式地指明构建的库类型:
 
 ```toml
 # ...
 
 [lib]
 name = "..."
-crate-type = ["dylib"] # could be `staticlib` as well
+crate-type = ["dylib"] # 也能是 `staticlib`
 ```
 
-The available options are `dylib`, `rlib`, `staticlib`, `cdylib`, and
-`proc-macro`.
+可用的选项是`dylib`，`rlib`，`staticlib`，`cdylib`和`proc-macro`。 您应该只在包中使用一次此选项。Cargo 总是根据(包括的)包的要求来编译包(依赖项)。
 
-You can read more about the different crate types in the
-[Rust Reference Manual](https://doc.rust-lang.org/reference/linkage.html)
+您可以阅读[Rust 参考手册](https://doc.rust-lang.org/reference/linkage.html)中更多关于不同的箱类型
 
 ### The `[patch]` Section
 
-This section of Cargo.toml can be used to [override dependencies][replace] with
-other copies. The syntax is similar to the `[dependencies]` section:
+> `[patch]` 部分
+
+这部分可以用来[重写其他副本的依赖项][replace]。语法类似于`[dependencies]`部分:
 
 ```toml
 [patch.crates-io]
@@ -831,37 +714,22 @@ git = 'https://github.com/example/baz'
 baz = { git = 'https://github.com/example/patched-baz', branch = 'my-branch' }
 ```
 
-The `[patch]` table is made of dependency-like sub-tables. Each key after
-`[patch]` is a URL of the source that's being patched, or `crates-io` if
-you're modifying the https://crates.io registry. In the example above
-`crates-io` could be replaced with a git URL such as
-`https://github.com/rust-lang-nursery/log`; the second `[patch]`
-section in the example uses this to specify a source called `baz`.
+这个`[patch]`表格由，类似依赖表格的子表组成。`[patch]`后的每个字段是正在修补的源 URL，或者`crates-io`(如果你正在修改[HTTPS://CRATESIO](https://crates.io)注册表)。在上面的例子中，`crates-io`可以用 Git URL 替换，例如`https://github.com/rust-lang-nursery/log`；第二个示例中的`[patch]`部分使用此来指定一个名为`baz`的源。
 
-Each entry in these tables is a normal dependency specification, the same as
-found in the `[dependencies]` section of the manifest. The dependencies listed
-in the `[patch]` section are resolved and used to patch the source at the
-URL specified. The above manifest snippet patches the `crates-io` source (e.g.
-crates.io itself) with the `foo` crate and `bar` crate. It also
-patches the `https://github.com/example/baz` source with a `my-branch` that
-comes from elsewhere.
+这些表格中的每个项都是一个正常的依赖关系规范，与`[dependencies]`清单的部分一样。`[patch]`部分中列出的依赖项，被解析并用于在指定的 URL 上对源进行补丁。上面的清单片段补丁`crates-io`源(例如 crates.io 本身)的`foo`箱和`bar`箱。它也用一个来自其他地方的`my-branch`分支修补了`https://github.com/example/baz`源。
 
-Sources can be patched with versions of crates that do not exist, and they can
-also be patched with versions of crates that already exist. If a source is
-patched with a crate version that already exists in the source, then the
-source's original crate is replaced.
+可以用不存在的箱版本来修补源，也可以用已经存在的箱版本来修补源。如果用源中已经存在的箱版本对源进行修补，则会替换源的原始箱。
 
-More information about overriding dependencies can be found in the [overriding
-dependencies][replace] section of the documentation and [RFC 1969] for the
-technical specification of this feature.
+有关重写依赖关系的更多信息，可阅读本文档的[重写依赖项][replace]章节和对于这一特性的[RFC 1969]技术规范说明。
 
-[RFC 1969]: https://github.com/rust-lang/rfcs/pull/1969
-[replace]: reference/specifying-dependencies.html#overriding-dependencies
+[rfc 1969]: https://github.com/rust-lang/rfcs/pull/1969
+[replace]: ./specifying-dependencies.zh.md#overriding-dependencies
 
 ### The `[replace]` Section
 
-This section of Cargo.toml can be used to [override dependencies][replace] with
-other copies. The syntax is similar to the `[dependencies]` section:
+> `[replace]` 部分
+
+这部分可以用来[重写其他副本的依赖项][replace]。语法类似于`[dependencies]`部分:
 
 ```toml
 [replace]
@@ -869,16 +737,9 @@ other copies. The syntax is similar to the `[dependencies]` section:
 "bar:1.0.2" = { path = 'my/local/bar' }
 ```
 
-Each key in the `[replace]` table is a [package id
-specification](reference/pkgid-spec.html) which allows arbitrarily choosing a node in the
-dependency graph to override. The value of each key is the same as the
-`[dependencies]` syntax for specifying dependencies, except that you can't
-specify features. Note that when a crate is overridden the copy it's overridden
-with must have both the same name and version, but it can come from a different
-source (e.g. git or a local path).
+`[replace]`表格的每个字段都是[包标识规范](./pkgid-spec.zh.md)，它任意选择依赖图中的节点来重写。每个字段值与`[dependencies]指定依赖关系的语法是一样，除了不能指定特性。注意，当覆盖一个箱时，覆盖它的副本必须具有相同的名称和版本，但它可以来自不同的源(例如，git 或本地路径).
 
-More information about overriding dependencies can be found in the [overriding
-dependencies][replace] section of the documentation.
+有关重写依赖关系的更多信息，可阅读本文档的[重写依赖项][replace]章节。
 
 [spdx-2.1-license-expressions]: https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60
 [spdx-license-list]: https://spdx.org/licenses/

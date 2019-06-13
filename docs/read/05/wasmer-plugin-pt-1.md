@@ -4,14 +4,7 @@
 
 > 本文同步于[Rust中文阅读：用`Wasmer`进行插件开发1](https://rustlang-cn.org/read/05/wasmer-plugin-pt-1.html) ,本文时间：2019-05-07, 作者：suhanyujie，简介：[suhanyujie](https://github.com/suhanyujie)
 
-[欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn),好文将展示在：
-
-- [Rust中文阅读](https://rustlang-cn.org/)
-- [Rust中文论坛](http://47.104.146.58/)
-- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
-- [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
-- [Rust中文微博](https://weibo.com/kriry?is_all=1)
-- [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
+[欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn),好文将展示在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF).
 
 * 这是一篇翻译文：*原文链接 https://wiredforge.com/blog/wasmer-plugin-pt-1/index.html*
 * 翻译首发地址：https://github.com/suhanyujie/article-transfer-rs/blob/master/src/using_wasmer_for_plugins

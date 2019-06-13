@@ -73,7 +73,7 @@ module.exports = {
             { text: 'Tokio', link: '/crates/tokio/' }
           ] },
           { text: '网络', link: '/www/weekly.html' },
-          { text: '论坛', link: 'http://47.104.146.58' },
+          { text: '论坛', link: 'http://ouisrc.xyz/a/community/rust' },
           { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
           
         ],

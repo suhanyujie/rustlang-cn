@@ -1,10 +1,16 @@
+![img](https://images.wallpaperscraft.com/image/painter_sky_clouds_142147_1366x768.jpg)
+
+# 通过 Rust 学习解析器组合器 — Part 1
+
+> 本文同步于[Rust中文阅读：通过 Rust 学习解析器组合器 — Part 1](https://rustlang-cn.org/read/06/learning-parser-combinators-with-rust-1.html) ,本文时间：2019-06-13, 作者：[suhanyujie](https://github.com/suhanyujie),本文已发布于在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF).
+
+[欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向Rust中文投稿,[投稿地址](https://github.com/rustlang-cn/rustlang-cn#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF),好文将展示在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF).
+
 > * 原文地址：[Learning Parser Combinators With Rust](https://bodil.lol/parser-combinators/)
 > * 原文作者：[Bodil](https://bodil.lol/)
 > * 译文出自：[掘金翻译计划](https://github.com/xitu/gold-miner)
 > * 本文永久链接：[https://github.com/xitu/gold-miner/blob/master/TODO1/learning-parser-combinators-with-rust-1.md](https://github.com/xitu/gold-miner/blob/master/TODO1/learning-parser-combinators-with-rust-1.md)
 > * 译者：[suhanyujie](https://github.com/suhanyujie)
-
-# 通过 Rust 学习解析器组合器 — Part 1
 
 本文面向会使用 Rust 编程的人员，提供一些解析器的基础知识。如果不具备其他知识，我们将会介绍和 Rust 无直接关系的所有内容，以及使用 Rust 实现这个会更加超出预期的一些方面。如果你还不了解 Rust 这个文章也不会讲如何使用它，如果你已经了解了，那它也不能打包票能教会你解析器组合器的知识。如果你想学习 Rust，我推荐阅读 [Rust 编程语言](https://doc.rust-lang.org/book/)。
 

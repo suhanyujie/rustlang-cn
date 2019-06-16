@@ -8,7 +8,6 @@
 * [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 * [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文微博](https://weibo.com/kriry?is_all=1)
-* [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
 * [Rust中文Github](https://github.com/rustlang-cn)
 
 ## Awesome
@@ -18,7 +17,6 @@
 - [Awesome-Crates](https://rustlang-cn.org/www/crates.html)
 - [Awesome-Tokio](https://rustlang-cn.org/www/tokio.html)
 - [Awesome-Actix](https://rustlang-cn.org/www/actix.html)
-- [Awesome-weekly](https://rustlang-cn.org/www/weekly.html)
 - [Awesome-中文资源](https://rustlang-cn.org/www/resource.html)
 
 ## Rust语言

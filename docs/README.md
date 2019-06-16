@@ -19,8 +19,8 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
     <p><a href="/read/" ><strong>Rust中文优质文章阅读</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
+    <button class="topic"><a href="http://ouisrc.xyz/a/community/rust" target="_black">Rust中文论坛</a></button>
+    <p><a href="http://ouisrc.xyz/a/signin" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
   </div>
   <div class="feature">
     <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>

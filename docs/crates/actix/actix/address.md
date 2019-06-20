@@ -4,7 +4,7 @@ Actor通过交换消息进行通信。发送者可以选择等待回应。`actor
 
 有几种方法可以获得`Actor`的`Address`。 `Actor` trait提供启动`actor`的两个辅助方法。两者都返回已启动`actor`的`Address`。
 
-这是一个`Actors::tart()`方法用法的例子。在这个例子中，`MyActor` `actor`是异步的，并且在与调用者相同的线程中启动。
+这是一个`Actors::start()`方法用法的例子。在这个例子中，`MyActor` `actor`是异步的，并且在与调用者相同的线程中启动。
 
 ```rust
 extern crate actix;

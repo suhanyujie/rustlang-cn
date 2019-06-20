@@ -12,6 +12,8 @@ let { discovery } = require ('./category/discovery.js')
 let { serde } = require ('./category/serde.js')
 let { www } = require ('./category/www.js')
 let { tokio_blog } = require ('./category/tokio_blog.js')
+let { book_exp } = require ('./category/user/book-exp.js')
+
 
 module.exports = {
     extend: '@vuepress/theme-default',
@@ -48,8 +50,8 @@ module.exports = {
         searchMaxSuggestions: 11,
         nav: [
           { text: '阅读', link: '/read/' },
-          { text: '文档', items: [
-              { text: '官方Rust书-中文版', link: '/office/rust/' },
+          { text: '官方', items: [
+              { text: '官方Rust书录', link: '/office/rust/' },
               { text: 'Rustlang', items: [
                   { text: 'Rust编程语言', link: '/office/rust/book/' },
                   { text: 'Rust高级编程', link: '/office/rust/advrust/' },
@@ -65,12 +67,16 @@ module.exports = {
             ]
           },
           { text: '生态', items: [ 
-            { text: 'Rust生态库-中文版', link: '/crates/' },
+            { text: 'Rust生态库书录', link: '/crates/' },
             { text: 'Actix', link: '/crates/actix/' },
             { text: 'Diesel', link: '/crates/diesel/' },
             { text: 'Riker', link: '/crates/riker/' },
             { text: 'Serde', link: '/crates/serde/' },
             { text: 'Tokio', link: '/crates/tokio/' }
+          ] },
+          { text: 'Rust中文', items: [ 
+            { text: 'Rust中文用户书录', link: '/users/' },
+            { text: 'The Book-学习心得', link: '/users/book-exp/' }
           ] },
           { text: '网络', link: '/www/resource.html' },
           { text: '论坛', link: 'http://ouisrc.xyz/a/community/rust' },
@@ -91,7 +97,8 @@ module.exports = {
           '/crates/riker/': riker('Riker'),
           '/crates/serde/': serde('Serde'),
           '/www/': www('www'),
-          '/crates/tokio/blog/': tokio_blog('tokio_blog')
+          '/crates/tokio/blog/': tokio_blog('tokio_blog'),
+          '/users/book-exp/': book_exp('book_exp')
         }
     }
 }

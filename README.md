@@ -10,6 +10,7 @@
 - [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
 - [Rust中文微博](https://weibo.com/kriry?is_all=1)
 - **Rust中文QQ群:570065685**
+- **Rust中文QQ-2群:258124913**
 
 **说明**：文章投稿可以直接PR本仓库，也可以投递文章链接（请选用易使用的格式，如：Markdown）。本专栏默认 MIT 协议，如你的文章有其他要求可注明。
 

@@ -9,6 +9,8 @@
 * [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文Github](https://github.com/rustlang-cn)
+* **Rust中文QQ群:570065685**
+* **Rust中文QQ-2群:258124913**
 
 ## Awesome
 

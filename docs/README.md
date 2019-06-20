@@ -9,7 +9,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div style="margin-top: 4rem;"></div>
 
-<div id="join">🎉🎉Rust中文首本用户编写Rust书籍面世<a href="https://rustlang-cn.org/users/book-exp/">Rust The Book 学习心得</a> </div><hr>
+<div id="join">Rust中文首本用户编写Rust书籍<a href="https://rustlang-cn.org/users/book-exp/">Rust The Book 学习心得</a>面世</div><hr>
 
 <div id="join">🎉🎉欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div><hr>
 

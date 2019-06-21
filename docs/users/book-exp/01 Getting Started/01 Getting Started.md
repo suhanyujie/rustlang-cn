@@ -1,31 +1,28 @@
 # 开始
 
-命令行安装：
+## 安装RUST
 
+命令行安装：
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 ```
 
 更新：
-
 ```shell
 rustup update
 ```
 
 卸载：
-
 ```shell
 rustup self uninstall
 ```
 
 查看版本：
-
 ```shell
 rustup --version
 ```
 
 查看本地文档：
-
 ```shell
 rustup doc
 ```
@@ -89,7 +86,7 @@ edition = "2018"
 ```shell
 cargo build
 ```
-> 构建结果在 target/debug 目录下。
+> 构建结果在 target/debug 目录下
 
 构建项目为realese版本：
 ```shell

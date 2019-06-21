@@ -1,6 +1,6 @@
 # 猜谜游戏
 
-*++源码：guessing_game++*
+*源码：[guessing_game](https://gitee.com/A1G2G1/Rust_The_Book/tree/master/guessing_game)*
 
 ## 要点
 

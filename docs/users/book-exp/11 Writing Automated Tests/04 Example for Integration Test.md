@@ -118,4 +118,3 @@ test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 > 可以直接复制 tests/iteg_test1.rs 的内容来创建 tests/iteg_test3.rs ，且从运行结果可以看到各个 IT 之间不会产生命名冲突。
 
-- 因为在 src/main.rs 中已经可以直接调用和测试代码

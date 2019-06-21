@@ -1,6 +1,6 @@
 # 「Rust-the-Book」学习心得
 
-## <font color="#0000dd">作者</font>
+## 作者
 
 作者 [@LinYing-github](https://github.com/LinYing-github) ，特别感谢 [@krircc](https://github.com/krircc) 的热心帮助。
 
@@ -34,7 +34,7 @@
 
 另外，对于涉及到代码 project 的章节，都在章节内容开头标注了对应的 project 名称。
 
-## 改进
+## <font color="#dddd00">改进</font>
 
 本书最初记录于笔记软件，现迁移到该平台，因此出现了部分不兼容的 MD 语法，等待改进。现存问题如下：
 
@@ -44,12 +44,4 @@
 
 - Chapter 07 模块
 - Chapter 11 自动测试
-<<<<<<< HEAD
 - Chapter 12 命令行
-=======
-- Chapter 12 命令行
-
-#### 文字背景
-
-使用了 ```==XXX==``` 语法来将文字背景标黄，等待改进。
->>>>>>> 9d404166c8ddc03a78139694738de5560539c47e

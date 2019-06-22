@@ -8,6 +8,9 @@
 <div id="read-join" style="font-size: 1.5rem;">欢迎 <a href="https://github.com/rustlang-cn/rustlang-cn" target="_black">投稿</a> 共建Rust语言中文网络！</div>
 
 <h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-06</span>
+<a href="/read/06/rust-streams.html">Rust流(Streams)</a></h4>
+
+<h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-06</span>
 <a href="/read/06/learning-parser-combinators-with-rust-1.html">【译】通过 Rust 学习解析器组合器 — Part 1</a></h4>
 
 <h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-05</span>

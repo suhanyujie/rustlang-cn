@@ -1,4 +1,4 @@
-![img](https://pic3.zhimg.com/v2-8edd12d5bcdd4e3da13c5287e8e4c587_r.jpg)
+![img](https://images.pexels.com/photos/2395264/pexels-photo-2395264.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)
 
 # Rust流(Streams)
 

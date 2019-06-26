@@ -2,7 +2,7 @@
 
 ## 作者
 
-作者 [@LinYing-github](https://github.com/LinYing-github) ，特别感谢 [@krircc](https://github.com/krircc) 的热心帮助。
+作者 [@lindorof](https://lindorof.github.io) ，特别感谢 [@krircc](https://github.com/krircc) 的热心帮助。
 
 ## 说明
 

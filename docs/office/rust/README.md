@@ -15,6 +15,7 @@
 - [The Rustdoc Book](https://doc.rust-lang.org/rustdoc/index.html)
 - [The Rust Error Index](https://doc.rust-lang.org/error-index.html)
 - [The Unstable Book](https://doc.rust-lang.org/unstable-book/index.html)
+- [The RFCs Book](https://rust-lang.github.io/rfcs/)
 
 ## Cargo 
 

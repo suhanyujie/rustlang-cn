@@ -46,9 +46,10 @@ fn calculate_length(s: &String) -> usize {
 1. 我们把函数的参数引用叫做 borrow
 2. 可以理解为：函数会自动的借用某些数据，用完后又自动归还
 
-### Reference & Mut
+### Reference 与 Mut
 
-先归纳一下：
+##### 总结一
+
 1. 变量默认是非 mut 的，包括 String
 2. 非 mut 的意思是，该变量的所有内容都不可变，包括 String 在 heap 中的数据内容
 3. 同理，函数的参数默认也是非 mut
@@ -83,9 +84,104 @@ fn can_change(some_string: &mut String) {
 }
 ```
 
+##### 总结二
+
+1. mut 变量可以被引用为 & 和 &mut
+2. 非 mut 变量只可以被引用为 &
+
+错误举例：
+
+```rust
+let x = 8;
+
+// 非mut变量不能&mut
+let rx = &mut 8;
+```
+
+正确举例：
+
+```rust
+// 对mut变量使用&
+let mut x = 8;
+let rx = &x;
+
+// 对mut变量使用&mut
+let mut x = 8;
+let rx = &mut x;
+```
+
+##### 总结三
+
+1. mut 变量指的是该变量本身能否被更改
+2. mut 引用指的是所引用的值能否被更改
+3. 因此，要搞清楚改变的是变量本身，还是所引用的值
+
+正确举例：
+
+```C++
+let x = 8;
+let y = 88;
+
+let mut rx = &x;
+// 改变的是变量自身
+rx = &y;
+```
+
+正确举例：
+
+```rust
+let mut x = 8;
+
+let rx = &mut x;
+// 改变的是所引用的值
+*rx = 99;
+```
+
+错误举例：
+
+```rust
+let mut x = 8;
+let mut y = 88;
+
+let rx = &mut x;
+// rx不是mut变量，不能被改变
+rx = &mut y;
+```
+
+错误举例：
+
+```rust
+let mut x = 8;
+
+let mut rx = &x;
+// 虽然x和rx两个变量都是mut
+// 但x是通过&来引用rx
+// 所以不能改变所引用的值
+*rx = 9;
+```
+
+##### 总结四
+
+1. 如果变量本身的类型是引用
+2. 则 & 和 &mut 是两种数据类型
+3. 因此，一个 mut 变量的类型不能在 & 和 &mut 之间切换
+
+错误举例：
+
+```rust
+let mut x = 8;
+let mut y = 9;
+
+// rx的类型被确定为&mut
+let mut rx = &mut x;
+// 因此不能将一个&类型赋值给rx
+rx = &y;
+```
+
 ### 对 &mut 的限制
 
-限制一：
+##### 限制一
+
 > 对特定的一个 scope，对特定的一份数据，只能存在一个 &mut
 
 错误举例：
@@ -98,7 +194,10 @@ let r1 = &mut s;
 let r2 = &mut s;
 ```
 
-例外：通过 {} 创造新的 scope 即可
+> 例外：通过 {} 创造新的 scope 即可
+
+正确举例：
+
 ```rust
 let mut s = String::from("hello");
 
@@ -110,10 +209,11 @@ let mut s = String::from("hello");
 let r2 = &mut s;
 ```
 
-限制二：
+##### 限制二
+
 > 对于同一份数据，不允许 & 和 &mut 同时存在，但允许多个 & 同时存在，这就类似读写锁的概念，可以并发读，但只能独占写
 
-举例：
+错误举例：
 ```rust
 let mut s = String::from("hello");
 
@@ -131,6 +231,7 @@ println!("{} {} {}", r1, r2, r3);
 
 > 需要注意的是：rust的这个限制是为了避免读写同时存在，所以某些不经意的情况下，会发现违背直觉的编译正确，比如将上例的 ```println!``` 删除，会发现编译正确，==是因为 r1 和 r2 并未被使用，因此 r3 仍然是唯一的一个引用，这可能是编译器的自动优化==
 
+正确举例：
 ```rust
 let mut s = String::from("hello");
 
@@ -142,6 +243,36 @@ let r2 = &s;
 // 因为后续没有使用 r1 和 r2
 // 因此此时可以理解为只有 r3
 let r3 = &mut s;
+```
+
+##### 限制三
+
+> 在引用的生存周期内，被引用的变量本身不允许改变，不管是 & 还是 &mut 。==我认为 Rust 做出这个限制的理由是，避免一些无意识的代码修改导致极难排查的错误，虽然这样的限制仿佛不符合程序员的直觉==
+
+错误举例：
+
+```rust
+let mut x = 8;
+
+// 注意是&mut
+let rx = &mut x;
+// 不允许x自身内容变化
+x = 9;
+
+println!("{}", rx);
+```
+
+错误举例：
+
+```rust
+let mut x = 8;
+
+// 注意是&
+let rx = &x;
+// 不允许x自身内容变化
+x = 9;
+
+println!("{}", rx);
 ```
 
 ### Dangling Reference

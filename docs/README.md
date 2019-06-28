@@ -7,11 +7,9 @@ actionLink: /office/rust/book/
 footer: MIT Licensed | Copyright © 2019-present | Rust中文
 ---
 
-<div style="margin-top: 4rem;"></div>
+<div style="margin-top: 5rem;"></div>
 
-<div id="join">🎉🎉🎉欢迎参与<a href="https://github.com/rustlang-cn/nutrition">Rust中文营养计划</a></div><hr>
-
-<div id="join">🎉🎉🎉欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div><hr>
+<!-- <div id="news">欢迎参与Rust中文-共建Rust语言中文生态网络</div><hr> -->
 
 <div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a>实时推送Rust全方位信息资源</div>
 

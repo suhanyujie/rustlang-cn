@@ -4,13 +4,12 @@
 
 * [Rust中文](https://rustlang-cn.org/)
 * [Rust中文阅读](https://rustlang-cn.org/read/)
+* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文论坛](http://47.104.146.58/)
 * [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
-* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
-* [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文Github](https://github.com/rustlang-cn)
-* **Rust中文QQ群:570065685**
-* **Rust中文QQ-2群:258124913**
+* **Rust中文QQ群：570065685**
+* **Rust中文QQ-2群：258124913**
 
 ## Awesome
 
@@ -32,7 +31,6 @@
 * [learning-rust](https://learning-rust.github.io/docs/a1.why_rust.html)
 * [Rust_w3cschool](https://www.w3cschool.cn/doc_rust/)
 
-
 ## 书籍
 
 * [**官方Rust书-中文版**](https://rustlang-cn.org/office/rust/)
@@ -43,7 +41,6 @@
 
 * [Rust基础教程](https://nodelover.me/course/rust-basic)
 * [Rust 教程 | 中文字幕 - 系列视频](https://space.bilibili.com/331415319?spm_id_from=333.788.b_765f7570696e666f.2)
-
 
 ## Wasm
 

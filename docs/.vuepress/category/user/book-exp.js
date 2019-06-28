@@ -105,6 +105,13 @@ exports.book_exp = (title) => {
             '12 A Command Line Tool/06 Standard Output and Standard Error',
             '12 A Command Line Tool/07 Appendix'
             ]
+        },
+        {
+            title: '闭包及迭代器',
+            collapsable: true,
+            children: [
+            '13 Functional Programming about Closure and Iterator/01 Closures that Anonymous Functions can Capture their Environment'
+            ]
         }
     ]
 }

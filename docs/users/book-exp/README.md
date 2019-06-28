@@ -2,7 +2,7 @@
 
 ## 作者
 
-作者 [@LinYing-github](https://github.com/LinYing-github) ，特别感谢 [@krircc](https://github.com/krircc) 的热心帮助。
+作者 [@lindorof](https://lindorof.github.io) ，特别感谢 [@krircc](https://github.com/krircc) 的热心帮助。
 
 ## 说明
 
@@ -36,7 +36,10 @@
 
 ## <font color="#dddd00">改进</font>
 
-本书最初记录于笔记软件，现迁移到该平台，因此出现了部分不兼容的 MD 语法，等待改进。现存问题如下：
+#### 说明
+
+1. 本书最初记录于笔记软件，现迁移到该平台，因此出现了部分不兼容的 MD 语法，等待改进
+2. 学习过程中会存在遗留问题，可能会在问题解决以后增加或修改章节内容，因此也记录在此处
 
 #### 流程图表
 
@@ -45,3 +48,7 @@
 - Chapter 07 模块
 - Chapter 11 自动测试
 - Chapter 12 命令行
+
+#### 关于 Chapter13
+
+- 对于 Closure ，暂时不清楚能否拓展为 Generic ，让 Closure 也支持泛型。也许随着本书的学习，很快就有答案，暂时记录一下该问题

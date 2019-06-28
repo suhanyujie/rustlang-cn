@@ -18,7 +18,7 @@ let { book_exp } = require ('./category/user/book-exp.js')
 module.exports = {
     extend: '@vuepress/theme-default',
     title: 'Rust中文',
-    description: '互助Rust爱好者,致力于Rust编程语言中文网络',
+    description: '互助Rust爱好者,致力于Rust语言中文生态网络',
     head: [
       ['link', { rel: 'icon', href: `/favicon.ico` }],
       ['link', { rel: 'manifest', href: '/manifest.json' }],

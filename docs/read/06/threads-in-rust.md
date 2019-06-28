@@ -184,7 +184,7 @@ MESI是一个拥有4个核心状态的状态机
 *  在模型中禁止修改和无效，因为您要么必须使用原子化的 ARC，要么使用 RC，或者使用像 mutex 这样的构造
 
 ## 分支预测
-分支预测是分支预测的一种尝试
+分支预测是分支预测器的一种尝试
 
 在实际使用 CPU 的"空闲"周期来获取所需的数据并进行投机性执行之前，猜测指令分支的可能结果。
 
@@ -366,7 +366,7 @@ atomic_lock.store(true, Ordering::SeqCst);
 现在我们开始讨论CPU和内存模型有用的部分。
 
 ## Atomics and ordering
-生锈中的原子实现了LLVM屏障
+Rust中的原子实现了LLVM屏障
 * Relaxed 
 * Release
 * Acquire

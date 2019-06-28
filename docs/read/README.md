@@ -5,7 +5,7 @@
 </div>
 <br>
 
-<div id="read-join" style="font-size: 1.5rem;">欢迎 <a href="https://github.com/rustlang-cn/rustlang-cn" target="_black">投稿</a> 共建Rust语言中文网络！</div>
+<div id="read-join" style="font-size: 1.5rem;">欢迎 <a href="https://github.com/rustlang-cn/rustlang-cn#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF" target="_black">投稿</a> 共建Rust语言中文网络！</div>
 
 <h4><img src="/imgs/rust.png"/><span style="color: #7B463D;font-size: 0.8rem;"> 2019-06</span>
 <a href="/read/06/threads-in-rust.html">Rust中的线程</a></h4>

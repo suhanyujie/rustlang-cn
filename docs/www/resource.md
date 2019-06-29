@@ -18,7 +18,6 @@
 - [Awesome-Crates](https://rustlang-cn.org/www/crates.html)
 - [Awesome-Tokio](https://rustlang-cn.org/www/tokio.html)
 - [Awesome-Actix](https://rustlang-cn.org/www/actix.html)
-- [Awesome-中文资源](https://rustlang-cn.org/www/resource.html)
 
 ## Rust语言
 

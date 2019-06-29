@@ -158,7 +158,8 @@ mod tests {
 
 在测试中，我们测试了当 `LimitTracker` 被告知将 `value` 设置为超过 `max` 值 75% 的某个值。首先新建一个 `MockMessenger`，其从空消息列表开始。接着新建一个 `LimitTracker` 并传递新建 `MockMessenger` 的引用和 `max` 值 100。我们使用值 80 调用 `LimitTracker` 的 `set_value` 方法，这超过了 100 的 75%。接着断言 `MockMessenger` 中记录的消息列表应该有一条消息。
 
-然而，这个测试是有问题的：
+
+，这个测试是有问题的：
 
 ```text
 error[E0596]: cannot borrow immutable field `self.sent_messages` as mutable

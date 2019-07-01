@@ -112,7 +112,8 @@ exports.book_exp = (title) => {
             children: [
             '13 Functional Programming about Closure and Iterator/01 Closures that Anonymous Functions can Capture their Environment',
             '13 Functional Programming about Closure and Iterator/02 Processing a Series of Items with Iterators',
-            '13 Functional Programming about Closure and Iterator/03 Improving Our IO Project'
+            '13 Functional Programming about Closure and Iterator/03 Improving Our IO Project',
+            '13 Functional Programming about Closure and Iterator/04 Comparing Performance about Loop and Iterator'
             ]
         }
     ]

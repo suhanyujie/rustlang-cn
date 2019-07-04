@@ -115,6 +115,13 @@ exports.book_exp = (title) => {
             '13 Functional Programming about Closure and Iterator/03 Improving Our IO Project',
             '13 Functional Programming about Closure and Iterator/04 Comparing Performance about Loop and Iterator'
             ]
+        },
+        {
+            title: 'Cargo 和 Crates.io',
+            collapsable: true,
+            children: [
+            '14 More about Cargo and Crates.io/01 Customizing Builds with Release Profiles'
+            ]
         }
     ]
 }

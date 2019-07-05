@@ -3,6 +3,7 @@
 ## Rust官方
 
 * [Rust-lang]( https://www.rust-lang.org  )
+* [Rust-Doc](https://rustlang-cn.org/office/rust/)
 * [Rust Forge](https://forge.rust-lang.org/)
 * [Rust Github](https://github.com/rust-lang)
 

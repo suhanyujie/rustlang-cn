@@ -48,6 +48,7 @@
 - Chapter 07 模块
 - Chapter 11 自动测试
 - Chapter 12 命令行
+- Chapter 14 发布 Crate
 
 #### 关于 Chapter13
 

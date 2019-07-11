@@ -79,7 +79,7 @@ module.exports = {
             { text: 'The Book-学习心得', link: '/users/book-exp/' }
           ] },
           { text: '网络', link: '/www/resource.html' },
-          { text: '论坛', link: 'http://ouisrc.xyz/a/community/rust' },
+          { text: '论坛', link: 'http://kriry.com/a/community/rust' },
           { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
           
         ],

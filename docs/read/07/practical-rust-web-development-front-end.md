@@ -3,43 +3,43 @@
 # Rust Web开发实战-前端
 
 > 本文同步于[Rust中文阅读：Rust Web开发实战-前端](https://rustlang-cn.org/read/07/practical-rust-web-development-front-end.html)，源自于[Rust中文营养计划
-](https://github.com/rustlang-cn/nutrition#rust%E4%B8%AD%E6%96%87%E8%90%A5%E5%85%BB%E8%AE%A1%E5%88%92)，时间：2019-067-13, 本文已发布在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF). 欢迎加入[Rust中文营养计划](https://github.com/rustlang-cn/nutrition),共建Rust语言中文网络！
+](https://github.com/rustlang-cn/nutrition#rust%E4%B8%AD%E6%96%87%E8%90%A5%E5%85%BB%E8%AE%A1%E5%88%92)，时间：2019-07-13, 本文已发布在[Rust中文网络点](https://github.com/rustlang-cn/rustlang-cn/blob/master/README.md#%E4%B8%80%E5%8F%82%E4%B8%8E-rust-%E4%B8%AD%E6%96%87%E9%98%85%E8%AF%BB%E6%8A%95%E7%A8%BF). 欢迎加入[Rust中文营养计划](https://github.com/rustlang-cn/nutrition),共建Rust语言中文网络！
 
-- 译者译者：[amerysong](https://github.com/amerysong)
+- 本文译者：[amerysong](https://github.com/amerysong)
 - [英文原文](https://dev.to/werner/practical-rust-web-development-front-end-538d)
 
 ---
 
-在这篇文章中，我将向您展示如何使用wasm在Rust中创建前端应用程序，我必须说明这并不简单，可能会有诸多弊端，可能是由于在Rust中使用wasm还为时尚早。因此，我不建议你在生产环境中使用，尤其是文档，并不是很直观。
+在这篇文章中，我将向您展示如何使用 wasm 在 Rust 中创建前端应用程序，我必须说明这并不简单，可能会有诸多弊端，这是由于在 Rust 中使用 wasm 还为时尚早。因此，我不建议你在生产环境中使用，尤其是文档，并不是很直观。
 
 
 ## 无框架（Frameworkless）
 
-任何具有Web开发经验的人都会尝试做的第一件事就是研究任何使工作更轻松的框架。有一些问题需要考虑，但是也有一些问题让我想要做无框架，正如我在前一段中所说的那样，缺少更新的文档会使一切变得更难，变化太大而且没有稳定的库，特别是可用的框架。
+任何具有 Web 开发经验的人都会尝试做的第一件事就是研究任何使工作更轻松的框架。有一些问题需要考虑，但是也有一些问题让我想要做无框架，正如我在前一段中所说的那样，缺少更新的文档会使一切变得更难，变化太大而且没有稳定的库，特别是可用的框架。
 
-关于无框架的好处是，我可以理解我应该如何使用wasm_bindgen并学习它的一些缺点，如果我决定在生产中使用它，将来会对我有所帮助。
+关于无框架的好处是，我可以理解我应该如何使用 wasm_bindgen 并学习它的一些缺点，如果我决定在生产中使用它，将来会对我有所帮助。
 
-如果您可以设法使用框架，那么它应该是处理状态和模板的更好方法。
+如果您可以设法使用框架，那么你就应该用，它应该是处理状态和模板的更好方法。
 
-我确信制作一个框架意味着很多工作，而他们背后的人正在努力工作，但是，我对他们中的大多数都有一些问题。
+我确信编写一个框架意味着很多工作，而框架背后的人正在努力工作，但是，目前大多数框架都有一些问题。
 
-Yew很受欢迎，但缺乏路由器（集成在框架中）和使用像stdweb这样的非官方包装箱让我在使用它之前三思而后行。
+Yew 很受欢迎，但缺乏路由器（集成在框架中），而使用像 stdweb 这样的非官方 crates 之前需要三思而后行。
 
-Seed似乎很酷，使用wasm_bindgen并有一个路由器，但由于某种原因，我仍然不明白fetch API不起作用。
+Seed 似乎很酷，使用 wasm_bindgen 并有一个路由器，但由于某种原因，我仍然不明白fetch API不起作用。
 
-Percy夜间工作，我更喜欢稳定的Rust。
+Percy 使用 Nightly 版本工作，而我更喜欢稳定版的 Rust。
 
-因此，我决定为我的宠物项目采用无框架，这不是什么大问题，但我想有更稳定的方法可以为SPA应用程序生产一些东西，遗憾的是Rust目前还不是其中之一。
+因此，我决定为我的宠物项目采用无框架，这不是什么大问题，但我想有更稳定的方法可以为 SPA 应用程序生产一些东西，遗憾的是 Rust 目前还不是稳定方法其中之一。
 
 但是，让我们忽略所有这些，并说我们有足够的勇气将它用于我们的项目。
 
 ## 基础（Basics）
 
-可能对您有帮助的一个提示是您永远不会忘记您正在使用Javascript，这是什么意思？在很少的地方，比如使用fetch制作一个ajax请求，你应该返回一个Promise而不是Future，然后像在Javascript中那样使用promise，但在Rust中。我稍后会给你看一个例子。
+可能对您有帮助的一个提示是永远不要忘记您正在使用 Javascript，这是什么意思？在很少的地方，比如使用 fetch 发起一个 ajax 请求，你应该返回一个 Promise 而不是 Future，然后像在 Javascript 中那样使用 promise，而不是在 Rust 中。我稍后会给你看一个例子。
 
 我们将从基础开始，让它运行。
 
-我们将在项目中添加webpack.config.js和package.json文件。
+我们将在项目中添加 webpack.config.js 和 package.json 文件。
 
 `webpack.config.js`:
 ```rust
@@ -96,7 +96,7 @@ module.exports = {
 }
 ```
 
-当然不要忘了`index.html`和`index.js`文件。
+当然不要忘了 `index.html` 和 `index.js` 文件。
 
 `index.html`
 ```html
@@ -113,7 +113,8 @@ module.exports = {
 </html>
 ```
 
-最后向工程添加一个空的`lib.rs`文件，然后就可以使用以下命令运行工程：
+最后向工程添加一个空的 `lib.rs` 文件，然后就可以使用以下命令运行工程：
+
 > cargo build
 > 
 > npm install
@@ -124,11 +125,10 @@ module.exports = {
 
 ## 路由（Router）
 
-我们也将实现我们的客户端路由器，为了实现这一点，我们需要处理History中的状态并对我们的webpack配置进行一些聚合（请记住我们也在使用Javascript）。
+我们也将实现我们的客户端路由，为了实现这一点，我们需要处理History中的状态并对我们的 webpack 配置进行一些聚合（请记住我们也在使用 Javascript ）。
 
-我们将从一个空的货物项目开始，并添加下一个板条箱。
+我们将从一个空的Cargo项目开始，并在 `Cargo.toml` 中添加下一个 crates。
 
-`Cargo.toml`：
 ```toml
 [lib]
 crate-type = ["cdylib"]
@@ -174,7 +174,7 @@ debug = true
 
 ```
 
-每当你需要来自DOM Api的东西时，你可能需要在[dependencies.web-sys]中添加它。
+每当你需要来自 DOM Api 的东西时，你可能需要在 [dependencies.web-sys] 中添加它。
 
 `src/router.rs`：
 ```rust
@@ -204,7 +204,7 @@ impl Router {
 
 ```
 
-每次用户更改网址时，我们都需要进入状态。现在我们要添加我们应用程序所需的所有路由，让我们添加一个带有标签的文件夹，组件并添加一个名为routes.rs的文件。
+每次用户更改网址时，我们都需要进入状态。现在我们要添加我们应用程序所需的所有路由，让我们添加一个带有 `components` 标签的文件夹，并添加一个名为 routes.rs 的文件。
 
 `src/components/routes.rs`：
 ```rust
@@ -248,7 +248,7 @@ impl Routes {
 
 ## Fetch API
 
-我们需要一种方法将http请求发送到服务器，我们可以使用Javascript Fetch API，但是请记住我们正在使用Javascript，所以我们需要使用＃[wasm_bindgen]注释每个函数并返回一个Promise 。
+我们需要一种方法将http请求发送到服务器，我们可以使用Javascript Fetch API，但是请记住我们正在使用Javascript，所以我们需要使用 `#[wasm_bindgen]` 注释每个函数并返回一个Promise 。
 
 `src/fetch.rs`：
 ```rust
@@ -319,9 +319,9 @@ pub fn delete_request(url: &str) -> Promise {
 
 ## 组件（Components）
 
-我们将在这个博客中实现注册组件，其余的是登录，主页和仪表板将在存储库中提供，我将稍后让产品页面，但是，一旦你能够理解基础知识，你可以如果您愿意，请继续阅读产品页面。
+我们将在这个博客中实现注册组件，其余的登录，主页和控制面板将在存储库中提供，我将稍后展示产品页面，但是，一旦你能够理解基础知识，你可以继续阅读产品页面。
 
-我们需要一个可以抽象组件所需的大多数功能的特性。
+我们需要一个可以抽象组件所需的大多数功能的 trait。
 
 `src/components/component.rs`：
 ```rust
@@ -538,9 +538,9 @@ impl Component for Register {
 ## 疑难排解（Troubleshooting）
 
 ### 更好的浏览器错误信息
-要更好地解释发生了什么，可以使用console_error_panic_hook crate。
+要更好地解释发生了什么，可以使用 **console_error_panic_hook** crate。
 
 ### Error: closure invoked recursively or destroyed already
 
-这意味着你正在使用一个闭包，你应该在使用它之后添加一个忘记方法，这是让我有点焦虑的事情之一，特别是当你在文档中阅读时：这个函数会泄漏内存。应该谨慎使用它以确保内存泄漏不会对程序造成太大影响。但是没有其他方法可以使闭包工作。
+这意味着你正在使用一个闭包，你应该在使用它之后添加一个 `forget` 方法，这是让我有点焦虑的事情之一，特别是当你在文档中阅读时：这个函数会泄漏内存。应该谨慎使用它以确保内存泄漏不会对程序造成太大影响。但是没有其他方法可以使闭包工作。
 

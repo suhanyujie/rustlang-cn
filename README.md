@@ -1,8 +1,8 @@
 # Rustlang-cn [![Build Status](https://dev.azure.com/rustlang-cn/rustlang-cn/_apis/build/status/rustlang-cn.rustlang-cn?branchName=master)](https://dev.azure.com/rustlang-cn/rustlang-cn/_build/latest?definitionId=1&branchName=master) [![matrix](https://about.riot.im/images/favicon-32.png)](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 
-## 一、参与 Rust 中文阅读投稿
+## 一、参与 Rust中文阅读 和 Rust中文营养计划
 
-> 欢迎参与Rust中文-共建Rust语言中文生态网络！欢迎向[Rust中文阅读](https://rustlang-cn.org/read/)投稿,好文将展示在以下Rust中文网络点：
+> 欢迎参与[Rust中文阅读](https://rustlang-cn.org/read/)投稿,好文将展示在以下Rust中文网络点：
 
 - [Rust中文阅读](https://rustlang-cn.org/read/)
 - [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
@@ -11,8 +11,8 @@
 - **Rust中文QQ群：570065685**
 - **Rust中文QQ-2群：258124913**
 
-**说明**：文章投稿可以直接PR本仓库，Rust中文默认 MIT 协议，如你的文章有其他要求可注明。
-
+> **Rust中文营养计划** [具体详情](https://github.com/rustlang-cn/nutrition#rust%E4%B8%AD%E6%96%87%E8%90%A5%E5%85%BB%E8%AE%A1%E5%88%92)
+ 
 ## 二、参与 Rust 中文网站建设
 
 > 因为本仓库的修改会自动发布到 [Rust中文](https://rustlang-cn.org/) 网站，请参与时遵循以下步骤，并确保构建为成功状态。

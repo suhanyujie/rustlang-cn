@@ -1,6 +1,8 @@
-# Rustlang-cn [![Build Status](https://dev.azure.com/rustlang-cn/rustlang-cn/_apis/build/status/rustlang-cn.rustlang-cn?branchName=master)](https://dev.azure.com/rustlang-cn/rustlang-cn/_build/latest?definitionId=1&branchName=master) [![matrix](https://about.riot.im/images/favicon-32.png)](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+# Rust中文 [![Build Status](https://dev.azure.com/rustlang-cn/rustlang-cn/_apis/build/status/rustlang-cn.rustlang-cn?branchName=master)](https://dev.azure.com/rustlang-cn/rustlang-cn/_build/latest?definitionId=1&branchName=master) [![matrix](https://about.riot.im/images/favicon-32.png)](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 
-## Rust中文网络点：
+![img](https://raw.githubusercontent.com/rustlang-cn/resourses/master/files/rustlang-cn-small.png)
+
+## 一: Rust中文网络点：
 
 - [Rust中文](https://rustlang-cn.org)
 - [Rust中文微博](https://weibo.com/kriry?is_all=1)
@@ -11,7 +13,7 @@
 - **Rust中文QQ群：570065685**
 - **Rust中文QQ-2群：258124913**
  
-## 欢迎参与 Rust中文网
+## 二: 欢迎参与 Rust中文网
 
 > 因为本仓库的修改会自动发布到 [Rust中文](https://rustlang-cn.org/) 网站，请参与时遵循以下步骤，并确保构建为成功状态。
 

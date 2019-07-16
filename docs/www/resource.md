@@ -9,10 +9,10 @@
 
 ## Rust中文
 
-* [Rust中文](https://rustlang-cn.org/)
-* [Rust中文阅读](https://rustlang-cn.org/read/)
-* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+* [Rust中文](https://rustlang-cn.org)
+* [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文论坛](http://kriry.com/a/community/rust)
+* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 * [Rust中文Github](https://github.com/rustlang-cn)
 * **Rust中文QQ群：570065685**

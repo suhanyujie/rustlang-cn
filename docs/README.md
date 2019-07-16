@@ -15,15 +15,15 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a href="/read/" >Rust中文阅读</a></button>
-    <p><a href="/read/" ><strong>Rust中文优质文章阅读</strong></a></p>
+    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >Rust中文微博</a></button>
+    <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="http://ouisrc.xyz/a/community/rust" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://ouisrc.xyz/a/signin" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
+    <button class="topic"><a href="http://kriry.com/a/community/rust" target="_black">Rust中文论坛</a></button>
+    <p><a href="http://kriry.com/a/signup" target="_black"><strong>Rust中文网络探索互动</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>
+    <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a></button>
     <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文聊天室畅聊</strong></a></p>
   </div>
 </div>

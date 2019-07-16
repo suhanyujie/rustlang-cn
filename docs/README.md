@@ -9,9 +9,9 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div style="margin-top: 5rem;"></div>
 
-<div id="news">欢迎参与Rust中文<a href="https://github.com/rustlang-cn/rustlang-cn" target="_black"> 共建 </a>Rust语言中文生态网络</div><hr>
+<div id="news">欢迎<a href="https://github.com/rustlang-cn/rustlang-cn" target="_black"> 参与 </a>Rust中文-共建Rust语言中文生态网络</div><hr>
 
-<div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a>实时推送Rust全方位信息资源</div>
+<div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a>-实时推送Rust全方位信息资源</div>
 
 <div class="features">
   <div class="feature">

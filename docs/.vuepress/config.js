@@ -35,12 +35,12 @@ module.exports = {
       'vuepress-plugin-baidu-autopush': {}
     },
     themeConfig: {
-        //repo: 'rustlang-cn/rustlang-cn',
+        repo: 'rustlang-cn/rustlang-cn',
         docsDir: 'docs',
         logo: '/imgs/rust.png',
         displayAllHeaders: true,
-        //editLinks: true,
-        //editLinkText: '在 GitHub 上编辑此页',
+        editLinks: true,
+        editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新', 
         sidebarDepth: 0,
         search: true,
@@ -49,7 +49,6 @@ module.exports = {
         },
         searchMaxSuggestions: 11,
         nav: [
-          { text: '阅读', link: '/read/' },
           { text: '官方', items: [
               { text: '官方Rust书录', link: '/office/rust/' },
               { text: 'Rustlang', items: [
@@ -79,8 +78,10 @@ module.exports = {
             { text: 'The Book-学习心得', link: '/users/book-exp/' }
           ] },
           { text: '网络', link: '/www/resource.html' },
+          { text: '微博', link: 'https://weibo.com/kriry?is_all=1' },
           { text: '论坛', link: 'http://kriry.com/a/community/rust' },
-          { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
+          { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' },
+          { text: '知乎', link: 'https://zhuanlan.zhihu.com/rustlang-cn' }
           
         ],
         sidebar: {

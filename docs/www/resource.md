@@ -9,10 +9,10 @@
 
 ## Rust中文
 
-* [Rust中文](https://rustlang-cn.org/)
-* [Rust中文阅读](https://rustlang-cn.org/read/)
-* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+* [Rust中文](https://rustlang-cn.org)
+* [Rust中文微博](https://weibo.com/kriry?is_all=1)
 * [Rust中文论坛](http://kriry.com/a/community/rust)
+* [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
 * [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 * [Rust中文Github](https://github.com/rustlang-cn)
 * **Rust中文QQ群：570065685**
@@ -39,8 +39,9 @@
 
 ## 书籍
 
-* [**官方Rust书-中文版**](https://rustlang-cn.org/office/rust/)
-* [**Rust生态库-中文版**](https://rustlang-cn.org/crates/)
+* [**官方Rust书录**](https://rustlang-cn.org/office/rust/)
+* [**Rust生态库书录**](https://rustlang-cn.org/crates/)
+* [**Rust中文用户书录**](https://rustlang-cn.org/users/)
 * [中文Rust By Example](https://rustwiki.org/zh-CN/rust-by-example/index.html)
 
 ## 视频

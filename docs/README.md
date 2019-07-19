@@ -88,14 +88,13 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 # Rust中文网络点
 
-- [Rust中文](https://rustlang-cn.org)&nbsp;-&nbsp;
-[Rust中文微博](https://weibo.com/kriry?is_all=1)&nbsp;-&nbsp;
-[Rust中文论坛](http://kriry.com/a/community/rust)&nbsp;-&nbsp;
-[Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)&nbsp;-&nbsp;
-[Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)&nbsp;-&nbsp;
-[Rust中文Github](https://github.com/rustlang-cn) 
-
-- **QQ-1群：570065685** &nbsp;-&nbsp;
-**QQ-2群：258124913**
+- [Rust中文](https://rustlang-cn.org)
+- **Rust中文公众号: rustlang-cn**
+- [Rust中文微博](https://weibo.com/kriry?is_all=1)
+- [Rust中文论坛](http://kriry.com/a/community/rust)
+- [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文Github](https://github.com/rustlang-cn)
+- **QQ-1群：570065685**
+- **QQ-2群：258124913**
 
 <br>

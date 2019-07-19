@@ -9,16 +9,16 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div style="margin-top: 5rem;"></div>
 
-<div id="news">欢迎<a href="https://github.com/rustlang-cn/rustlang-cn" target="_black"> 参与 </a>Rust中文-共建Rust语言中文生态网络</div><hr>
+<div id="news"><a href="https://github.com/rustlang-cn/rustlang-cn" target="_black">欢迎参与 </a>Rust中文共建Rust语言中文生态网络</div><hr>
 
-<div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a>-实时推送Rust全方位信息资源</div><hr>
+<div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室 </a>实时推送Rust全方位信息资源</div><hr>
 
-<div id="news">Rust中文QQ-1群：570065685 &emsp;-&emsp; Rust中文QQ-2群：258124913</div>
+<div id="news"><strong>Rust中文QQ群</strong> 1群：570065685 &nbsp; 2群：258124913</div>
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a href="#" >Rust中文公众号: rustlang-cn</a></button>
-    <p><a href="#" ><strong>Rust中文动态关注订阅</strong></a></p>
+    <button class="topic"><a>公众号: rustlang-cn</a></button>
+    <p><a><strong>微信公众号: rustlang-cn</strong></a></p>
   </div>
   <div class="feature">
     <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">Rust中文知乎</a></button>
@@ -26,7 +26,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   </div>
   <div class="feature">
     <button class="topic"><a href="https://github.com/rustlang-cn" target="_black">Rust中文Github</a></button>
-    <p><a href="https://github.com/rustlang-cn" target="_black"><strong>共建Rust中文</strong></a></p>
+    <p><a href="https://github.com/rustlang-cn" target="_black"><strong>欢迎共建Rust中文</strong></a></p>
   </div>
 </div>
 

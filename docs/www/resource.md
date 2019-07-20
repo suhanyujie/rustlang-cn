@@ -10,7 +10,7 @@
 ## Rust中文
 
 - [Rust中文](https://rustlang-cn.org)
-- **Rust中文公众号: rustlang-cn**
+- **微信公众号：Rust中文**
 - [Rust中文微博](https://weibo.com/kriry?is_all=1)
 - [Rust中文论坛](http://kriry.com/a/community/rust)
 - [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)

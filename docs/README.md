@@ -17,8 +17,8 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a>公众号: rustlang-cn</a></button>
-    <p><a><strong>微信公众号: rustlang-cn</strong></a></p>
+    <button class="topic"><a>微信公众号: Rust中文</a></button>
+    <p><a><strong>微信Rust中文生态网络</strong></a></p>
   </div>
   <div class="feature">
     <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">Rust中文知乎</a></button>
@@ -103,7 +103,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 # Rust中文网络点
 
 - [Rust中文](https://rustlang-cn.org)
-- **Rust中文公众号: rustlang-cn**
+- **微信公众号：Rust中文**
 - [Rust中文微博](https://weibo.com/kriry?is_all=1)
 - [Rust中文论坛](http://kriry.com/a/community/rust)
 - [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)

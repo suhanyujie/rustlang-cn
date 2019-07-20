@@ -11,6 +11,8 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div id="news"><a href="https://github.com/rustlang-cn/rustlang-cn" target="_black">欢迎参与 </a>Rust中文共建Rust语言中文生态网络</div><hr>
 
+<div id="news">欢迎参与<a href="https://github.com/rustlang-cn/nutrition" target="_black"> Rust中文营养计划</a></div><hr>
+
 <div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室 </a>实时推送Rust全方位信息资源</div><hr>
 
 <div id="news"><strong>Rust中文QQ群</strong> 1群：570065685 &nbsp; 2群：258124913</div>

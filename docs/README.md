@@ -28,9 +28,6 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
     <button class="topic"><a href="https://github.com/rustlang-cn" target="_black">Rust中文Github</a></button>
     <p><a href="https://github.com/rustlang-cn" target="_black"><strong>欢迎共建Rust中文</strong></a></p>
   </div>
-</div>
-
-<div class="features">
   <div class="feature">
     <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >Rust中文微博</a></button>
     <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>

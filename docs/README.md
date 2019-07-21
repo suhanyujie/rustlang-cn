@@ -15,11 +15,11 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室 </a>实时推送Rust全方位信息资源</div><hr>
 
-<div id="news"><strong>Rust中文QQ群</strong> 1群：570065685 &nbsp; 2群：258124913</div>
+<div id="news"><strong>QQ群</strong> 2群：258124913 &nbsp; 1群：570065685</div>
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >Rust中文微博:Rust中文</a></button>
+    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >微博:Rust中文</a></button>
     <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>
   </div>
   <div class="feature">
@@ -27,7 +27,7 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
     <p><a><strong>微信Rust中文生态网络</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">Rust中文知乎</a></button>
+    <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">知乎专栏:Rust中文</a></button>
     <p><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black"><strong>Rust中文优质文章</strong></a></p>
   </div>
   <div class="feature">

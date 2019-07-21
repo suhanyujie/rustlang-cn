@@ -19,20 +19,16 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a>微信公众号: Rust中文</a></button>
+    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >Rust中文微博:Rust中文</a></button>
+    <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>
+  </div>
+  <div class="feature">
+    <button class="topic"><a>微信公众号:Rust中文</a></button>
     <p><a><strong>微信Rust中文生态网络</strong></a></p>
   </div>
   <div class="feature">
     <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">Rust中文知乎</a></button>
     <p><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black"><strong>Rust中文优质文章</strong></a></p>
-  </div>
-  <div class="feature">
-    <button class="topic"><a href="https://github.com/rustlang-cn" target="_black">Rust中文Github</a></button>
-    <p><a href="https://github.com/rustlang-cn" target="_black"><strong>欢迎共建Rust中文</strong></a></p>
-  </div>
-  <div class="feature">
-    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >Rust中文微博</a></button>
-    <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>
   </div>
   <div class="feature">
     <button class="topic"><a href="http://kriry.com/a/community/rust" target="_black">Rust中文论坛</a></button>
@@ -41,6 +37,10 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
   <div class="feature">
     <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a></button>
     <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文聊天室畅聊</strong></a></p>
+  </div>
+  <div class="feature">
+    <button class="topic"><a href="https://github.com/rustlang-cn" target="_black">Rust中文Github</a></button>
+    <p><a href="https://github.com/rustlang-cn" target="_black"><strong>欢迎共建Rust中文</strong></a></p>
   </div>
 </div>
 

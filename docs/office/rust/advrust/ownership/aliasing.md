@@ -32,7 +32,7 @@ fn compute(input: &u32, output: &mut u32) {
 fn compute(input: &u32, output: &mut u32) {
     let cached_input = *input; // 将*input放入缓存
     if cached_input > 10 {
-        *output = 2; // x > 5 则必然 x > 5，所以直接加倍并立即退出
+        *output = 2; // x > 10 则必然 x > 5，所以直接加倍并立即退出
     } else if cached_input > 5 {
         *output *= 2;
     }
@@ -49,7 +49,7 @@ fn compute(input: &u32, output: &mut u32) {
 if *input > 10 {  // true (*input == 20)
     *output = 1;  // 同时覆盖了 *input，以为他们是一样的
 } 
-*input > 5 {      // false (*input == 1)
+if *input > 5 {      // false (*input == 1)
     *output *= 2;
 }
                   // *input == *output == 1

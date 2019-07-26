@@ -1,15 +1,23 @@
-# 资源
+# 网络
+
+## Rust官方
+
+* [Rust-lang]( https://www.rust-lang.org  )
+* [Rust-Doc](https://rustlang-cn.org/office/rust/)
+* [Rust Forge](https://forge.rust-lang.org/)
+* [Rust Github](https://github.com/rust-lang)
 
 ## Rust中文
 
-* [Rust中文](https://rustlang-cn.org/)
-* [Rust中文阅读](https://rustlang-cn.org/read/)
-* [Rust中文论坛](http://47.104.146.58/)
-* [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
-* [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
-* [Rust中文微博](https://weibo.com/kriry?is_all=1)
-* [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
-* [Rust中文Github](https://github.com/rustlang-cn)
+- [Rust中文](https://rustlang-cn.org)
+- **微信公众号：Rust中文**
+- [Rust中文微博](https://weibo.com/kriry?is_all=1)
+- [Rust中文论坛](http://kriry.com/a/community/rust)
+- [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+- [Rust中文Github](https://github.com/rustlang-cn)
+- **QQ-1群：570065685**
+- **QQ-2群：258124913**
 
 ## Awesome
 
@@ -18,8 +26,6 @@
 - [Awesome-Crates](https://rustlang-cn.org/www/crates.html)
 - [Awesome-Tokio](https://rustlang-cn.org/www/tokio.html)
 - [Awesome-Actix](https://rustlang-cn.org/www/actix.html)
-- [Awesome-weekly](https://rustlang-cn.org/www/weekly.html)
-- [Awesome-中文资源](https://rustlang-cn.org/www/resource.html)
 
 ## Rust语言
 
@@ -32,18 +38,17 @@
 * [learning-rust](https://learning-rust.github.io/docs/a1.why_rust.html)
 * [Rust_w3cschool](https://www.w3cschool.cn/doc_rust/)
 
-
 ## 书籍
 
-* [**官方Rust书-中文版**](https://rustlang-cn.org/office/rust/)
-* [**Rust生态库-中文版**](https://rustlang-cn.org/crates/)
+* [**官方Rust书录**](https://rustlang-cn.org/office/rust/)
+* [**Rust生态库书录**](https://rustlang-cn.org/crates/)
+* [**Rust中文用户书录**](https://rustlang-cn.org/users/)
 * [中文Rust By Example](https://rustwiki.org/zh-CN/rust-by-example/index.html)
 
 ## 视频
 
 * [Rust基础教程](https://nodelover.me/course/rust-basic)
 * [Rust 教程 | 中文字幕 - 系列视频](https://space.bilibili.com/331415319?spm_id_from=333.788.b_765f7570696e666f.2)
-
 
 ## Wasm
 

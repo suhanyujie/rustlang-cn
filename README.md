@@ -1,21 +1,22 @@
-# Rustlang-cn [![Build Status](https://dev.azure.com/rustlang-cn/rustlang-cn/_apis/build/status/rustlang-cn.rustlang-cn?branchName=master)](https://dev.azure.com/rustlang-cn/rustlang-cn/_build/latest?definitionId=1&branchName=master) [![matrix](https://about.riot.im/images/favicon-32.png)](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+# Rust中文 [![Build Status](https://dev.azure.com/rustlang-cn/rustlang-cn/_apis/build/status/rustlang-cn.rustlang-cn?branchName=master)](https://dev.azure.com/rustlang-cn/rustlang-cn/_build/latest?definitionId=1&branchName=master) [![matrix](https://about.riot.im/images/favicon-32.png)](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
 
-## 一、参与 Rust 中文阅读投稿
+![img](https://raw.githubusercontent.com/rustlang-cn/resourses/master/files/rustlang-cn-small.png)
 
-> [欢迎加入](https://github.com/rustlang-cn/Important/issues/1)Rust中文,共建Rust语言中文网络！欢迎向[Rust中文阅读](https://rustlang-cn.org/read/)投稿,好文将展示在以下Rust中文网络点：
+## 一: Rust中文网络点：
 
-- [Rust中文阅读](https://rustlang-cn.org/)
-- [Rust中文论坛](http://47.104.146.58/)
-- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
-- [Rust中文知乎专栏](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文](https://rustlang-cn.org)
+- **微信公众号：Rust中文**
 - [Rust中文微博](https://weibo.com/kriry?is_all=1)
-- [Rust中文Weekly](https://rustlang-cn.org/www/weekly.html)
+- [Rust中文论坛](http://kriry.com/a/community/rust)
+- [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+- [Rust中文Github](https://github.com/rustlang-cn)
+- **QQ-1群：570065685**
+- **QQ-2群：258124913**
+ 
+## 二: 欢迎参与 Rust中文网
 
-**说明**：文章投稿可以直接PR本仓库，也可以投递文章链接（请选用易使用的格式，如：Markdown）。本专栏默认 MIT 协议，如你的文章有其他要求可注明。
-
-## 二、参与 Rust 中文网站建设
-
-> 因为本仓库的修改会自动发布到 [rustlang-cn](https://rustlang-cn.org/) 网站，请参与时遵循以下步骤，并确保构建为成功状态。
+> 因为本仓库的修改会自动发布到 [Rust中文](https://rustlang-cn.org/) 网站，请参与时遵循以下步骤，并确保构建为成功状态。
 
 ### A. 参与文档
 

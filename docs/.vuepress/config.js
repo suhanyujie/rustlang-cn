@@ -12,11 +12,13 @@ let { discovery } = require ('./category/discovery.js')
 let { serde } = require ('./category/serde.js')
 let { www } = require ('./category/www.js')
 let { tokio_blog } = require ('./category/tokio_blog.js')
+let { book_exp } = require ('./category/user/book-exp.js')
+
 
 module.exports = {
     extend: '@vuepress/theme-default',
     title: 'Rust中文',
-    description: '互助Rust爱好者,致力于Rust编程语言中文网络',
+    description: '互助Rust爱好者,致力于Rust语言中文生态网络',
     head: [
       ['link', { rel: 'icon', href: `/favicon.ico` }],
       ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -33,12 +35,12 @@ module.exports = {
       'vuepress-plugin-baidu-autopush': {}
     },
     themeConfig: {
-        //repo: 'rustlang-cn/rustlang-cn',
+        repo: 'rustlang-cn/rustlang-cn',
         docsDir: 'docs',
         logo: '/imgs/rust.png',
         displayAllHeaders: true,
-        //editLinks: true,
-        //editLinkText: '在 GitHub 上编辑此页',
+        editLinks: true,
+        editLinkText: '在 GitHub 上编辑此页',
         lastUpdated: '上次更新', 
         sidebarDepth: 0,
         search: true,
@@ -47,14 +49,13 @@ module.exports = {
         },
         searchMaxSuggestions: 11,
         nav: [
-          { text: '阅读', link: '/read/' },
-          { text: '文档', items: [
-              { text: '官方Rust书-中文版', link: '/office/rust/' },
+          { text: '官方', items: [
+              { text: '官方Rust书录', link: '/office/rust/' },
               { text: 'Rustlang', items: [
                   { text: 'Rust编程语言', link: '/office/rust/book/' },
                   { text: 'Rust高级编程', link: '/office/rust/advrust/' },
                   { text: 'Rust异步编程', link: '/office/rust/async-rust/' },
-                  { text: 'Rust语言规范', link: '/office/rust/reference/' },
+                  { text: 'Rust语言参考', link: '/office/rust/reference/' },
                   { text: 'Cargo教程', link: '/office/rust/cargo/' }
                 ]
               },
@@ -65,16 +66,22 @@ module.exports = {
             ]
           },
           { text: '生态', items: [ 
-            { text: 'Rust生态库-中文版', link: '/crates/' },
+            { text: 'Rust生态库书录', link: '/crates/' },
             { text: 'Actix', link: '/crates/actix/' },
             { text: 'Diesel', link: '/crates/diesel/' },
             { text: 'Riker', link: '/crates/riker/' },
             { text: 'Serde', link: '/crates/serde/' },
             { text: 'Tokio', link: '/crates/tokio/' }
           ] },
-          { text: '网络', link: '/www/weekly.html' },
-          { text: '论坛', link: 'http://ouisrc.xyz/a/community/rust' },
-          { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' }
+          { text: 'Rust中文', items: [ 
+            { text: 'Rust中文用户书录', link: '/users/' },
+            { text: 'The Book-学习心得', link: '/users/book-exp/' }
+          ] },
+          { text: '网络', link: '/www/resource.html' },
+          { text: '微博', link: 'https://weibo.com/kriry?is_all=1' },
+          { text: '论坛', link: 'http://kriry.com/a/community/rust' },
+          { text: '聊天室', link: 'https://riot.im/app/#/room/#rustlang-cn:matrix.org' },
+          { text: '知乎', link: 'https://zhuanlan.zhihu.com/rustlang-cn' }
           
         ],
         sidebar: {
@@ -91,7 +98,8 @@ module.exports = {
           '/crates/riker/': riker('Riker'),
           '/crates/serde/': serde('Serde'),
           '/www/': www('www'),
-          '/crates/tokio/blog/': tokio_blog('tokio_blog')
+          '/crates/tokio/blog/': tokio_blog('tokio_blog'),
+          '/users/book-exp/': book_exp('book_exp')
         }
     }
 }

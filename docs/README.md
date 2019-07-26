@@ -7,25 +7,40 @@ actionLink: /office/rust/book/
 footer: MIT Licensed | Copyright © 2019-present | Rust中文
 ---
 
-<div style="margin-top: 4rem;"></div>
+<div style="margin-top: 5rem;"></div>
 
-<div id="news">🎉🎉🎉<a href="http://47.104.146.58/a/free/theme/64" target="_black">Rust-weekly-2019-05-20
-</a> </div><hr>
+<div id="news"><a href="https://github.com/rustlang-cn/rustlang-cn" target="_black">欢迎参与 </a>Rust中文共建Rust语言中文生态网络</div><hr>
 
-<div id="join">欢迎 <a href="https://github.com/rustlang-cn/Important/issues/1" target="_black">加入</a> 共建Rust语言中文网络！</div>
+<div id="news">欢迎参与<a href="https://github.com/rustlang-cn/nutrition" target="_black"> Rust中文营养计划</a></div><hr>
+
+<div id="news"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室 </a>实时推送Rust全方位信息资源</div><hr>
+
+<div id="news"><strong>QQ群</strong> 2群：258124913 &nbsp; 1群：570065685</div>
 
 <div class="features">
   <div class="feature">
-    <button class="topic"><a href="/read/" >Rust中文阅读</a></button>
-    <p><a href="/read/" ><strong>Rust中文优质文章阅读</strong></a></p>
+    <button class="topic"><a href="https://weibo.com/kriry?is_all=1" >微博:Rust中文</a></button>
+    <p><a href="https://weibo.com/kriry?is_all=1" ><strong>Rust中文动态关注订阅</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="http://47.104.146.58/" target="_black">Rust中文论坛</a></button>
-    <p><a href="http://47.104.146.58/a/signup" target="_black"><strong>现在加入Rust中文论坛</strong></a></p>
+    <button class="topic"><a>微信公众号:Rust中文</a></button>
+    <p><a><strong>微信Rust中文生态网络</strong></a></p>
   </div>
   <div class="feature">
-    <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust聊天室</a></button>
+    <button class="topic"><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black">知乎专栏:Rust中文</a></button>
+    <p><a href="https://zhuanlan.zhihu.com/rustlang-cn" target="_black"><strong>Rust中文优质文章</strong></a></p>
+  </div>
+  <div class="feature">
+    <button class="topic"><a href="http://kriry.com/a/community/rust" target="_black">Rust中文论坛</a></button>
+    <p><a href="http://kriry.com/a/signup" target="_black"><strong>Rust中文网络探索互动</strong></a></p>
+  </div>
+  <div class="feature">
+    <button class="topic"><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black">Rust中文聊天室</a></button>
     <p><a href="https://riot.im/app/#/room/#rustlang-cn:matrix.org" target="_black"><strong>Rust中文聊天室畅聊</strong></a></p>
+  </div>
+  <div class="feature">
+    <button class="topic"><a href="https://github.com/rustlang-cn" target="_black">Rust中文Github</a></button>
+    <p><a href="https://github.com/rustlang-cn" target="_black"><strong>欢迎共建Rust中文</strong></a></p>
   </div>
 </div>
 
@@ -85,4 +100,18 @@ footer: MIT Licensed | Copyright © 2019-present | Rust中文
     <p>高性能渲染，实时光线追踪、SIMD</p>
     <div><a href="/office/game/">阅读更多</a></div>
   </div>
-</div>
+</div><br>
+
+# Rust中文网络点
+
+- [Rust中文](https://rustlang-cn.org)
+- **微信公众号：Rust中文**
+- [Rust中文微博](https://weibo.com/kriry?is_all=1)
+- [Rust中文论坛](http://kriry.com/a/community/rust)
+- [Rust中文知乎](https://zhuanlan.zhihu.com/rustlang-cn)
+- [Rust中文聊天室](https://riot.im/app/#/room/#rustlang-cn:matrix.org)
+- [Rust中文Github](https://github.com/rustlang-cn)
+- **QQ-1群：570065685**
+- **QQ-2群：258124913**
+
+<br>

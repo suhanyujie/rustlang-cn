@@ -40,7 +40,8 @@ exports.asyncrust = (title) => {
             title: '流',
             collapsable: true,
             children: [
-            'streams/chapter'
+            'streams/chapter',
+            'streams/iteration_and_concurrency'
             ]
         }
     ]
